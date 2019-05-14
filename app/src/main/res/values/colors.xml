@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#0C823E</color>
+    <color name="colorPrimaryDark">#055A3D</color>
+    <color name="colorAccent">#EB4231</color>
+    <color name="kuning">#F5E52E</color>
+    <color name="biru_tua">#002031</color>
+    <color name="hijau_muda">#31A05E</color>
+    <color name="abu_muda">#F5F4EF</color>
+
+
 </resources>
