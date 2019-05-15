@@ -63,6 +63,7 @@
             />
 
         <RelativeLayout
+            android:id="@+id/layout_tabungan"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="16dp"
@@ -71,9 +72,9 @@
 
             <ImageView
                 android:id="@+id/icon_warning"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="#EB4231" />
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/danger_red" />
 
             <TextView
                 android:id="@+id/status_nasabah"
@@ -103,9 +104,9 @@
                     />
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="#767676"/>
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@drawable/ic_keyboard_arrow_right"/>
 
             </LinearLayout>
 
@@ -190,6 +191,49 @@
                 android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerBanner"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="16dp"
+            >
+
+        </android.support.v4.view.ViewPager>
+
+
+        <View
+            android:id="@+id/horizontal_line2"
+            android:layout_below="@id/layout_tabungan"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#e6e6e6"
+            android:layout_marginTop="16dp"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_berita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berita"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"/>
+
+            <ImageView
+                android:id="@+id/tv_see_all_berita"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_keyboard_arrow_right"
+                android:layout_marginTop="12dp"
+                android:layout_alignParentRight="true"/>
+
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
