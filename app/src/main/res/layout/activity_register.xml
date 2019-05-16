@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity"
+    android:background="@color/abu_muda">
+
+    <!--Top Background-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:src="@drawable/top_background"
+        android:scaleType="fitXY"/>
+
+    <!--Sign In-->
+    <RelativeLayout
+        android:id="@+id/bgWhite"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_white"
+        android:layout_margin="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/signUpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sign Up"
+            android:textColor="@color/hitam"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="65dp"
+            android:layout_height="2dp"
+            android:layout_below="@id/signUpText"
+            android:layout_marginTop="3dp"
+            android:background="@color/hitam" />
+
+        <ImageView
+            android:id="@+id/ic_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signUpText"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_action_user" />
+
+        <EditText
+            android:id="@+id/editTextNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signUpText"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/ic_email"
+            android:hint="Nama"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ic_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_nama"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_action_location" />
+
+        <EditText
+            android:id="@+id/editTextAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_nama"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ic_password"
+            android:hint="Alamat"
+            android:inputType="textPostalAddress"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ic_nohp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_alamat"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_action_phone" />
+
+        <EditText
+            android:id="@+id/editTextNoHp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_alamat"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ic_password"
+            android:hint="No. Handphone"
+            android:inputType="number"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+
+        <ImageView
+            android:id="@+id/ic_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_nohp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_action_mail" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNoHp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ic_email"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ic_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_email"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_action_lock_closed" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_email"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ic_password"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/ic_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/textOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSignUp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Atau"
+            android:textColor="@color/hitam" />
+
+        <Button
+            android:id="@+id/textGoogleSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/textOr"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_white"
+            android:drawableLeft="@drawable/btn_google"
+            android:text="@string/google_sign_up"
+            android:textAllCaps="false" />
+
+        <!--<com.google.android.gms.common.SignInButton-->
+        <!--android:id="@+id/googleSignIn"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/textOr"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="11dp"-->
+        <!--android:text="Sign in with Google"-->
+        <!--app:isDarkTheme="true"/>-->
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo_samkuriang"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/textHave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:layout_below="@+id/bgWhite"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="@color/hitam"/>
+
+    <TextView
+        android:id="@+id/textSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:layout_below="@+id/textHave"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="@color/colorAccent"
+        android:clickable="true"
+        android:onClick="onClick"
+        tools:ignore="onClick"/>
+
+
+</RelativeLayout>
