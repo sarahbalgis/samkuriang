@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bodoamat.samkuriang.Fragment.HomeFragment">
+    tools:context="bodoamat.samkuriang.HomeActivity">
 
 
     <ImageView
@@ -16,7 +16,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -31,8 +34,7 @@
                 android:text="Halo, "
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_hai_nama"
@@ -41,8 +43,7 @@
                 android:text="Gita"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,8 +51,7 @@
                 android:text="!"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
@@ -59,8 +59,7 @@
             android:layout_height="wrap_content"
             android:text="Sudahkan kamu menabung sampah?"
             android:textColor="#ffffff"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
         <RelativeLayout
             android:id="@+id/layout_tabungan"
@@ -78,117 +77,113 @@
 
             <TextView
                 android:id="@+id/status_nasabah"
-                android:layout_toRightOf="@id/icon_warning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/icon_warning"
                 android:text="Belum terdaftar menjadi nasabah"
                 android:textColor="#EB4231"
-                android:textSize="12sp"
-                android:layout_marginLeft="8dp"
-                />
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:id="@+id/btn_daftar_nasabah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentRight="true">
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="daftar"
-                    android:textStyle="bold"
                     android:layout_marginRight="8dp"
+                    android:text="daftar"
                     android:textSize="12sp"
-                    />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
-                    android:background="@drawable/ic_keyboard_arrow_right"/>
+                    android:background="@drawable/ic_keyboard_arrow_right" />
 
             </LinearLayout>
 
             <View
                 android:id="@+id/horizontal_line"
-                android:layout_below="@id/status_nasabah"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#F5F5F5"
-                android:layout_marginTop="12dp"/>
+                android:layout_below="@id/status_nasabah"
+                android:layout_marginTop="12dp"
+                android:background="#F5F5F5" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/horizontal_line"
-                android:layout_marginTop="16dp"
                 android:layout_marginLeft="12dp"
-                android:orientation="vertical"
-                >
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RP"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginLeft="16dp"/>
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saldo Tabungan"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:text="Saldo Tabungan" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/horizontal_line"
-                android:layout_toRightOf="@id/vertical_line"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="16dp"
-                android:orientation="vertical"
-                >
+                android:layout_toRightOf="@id/vertical_line"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="kg"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginLeft="16dp"/>
+                    android:text="0"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Berat Sampah"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:text="Berat Sampah" />
             </LinearLayout>
 
 
             <View
                 android:id="@+id/vertical_line"
-                android:layout_below="@id/horizontal_line"
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#F5F5F5"
-                android:layout_centerHorizontal="true"/>
+                android:layout_below="@id/horizontal_line"
+                android:layout_centerHorizontal="true"
+                android:background="#F5F5F5" />
 
         </RelativeLayout>
 
@@ -197,18 +192,18 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_marginTop="16dp"
-            >
+            android:baselineAligned="false">
 
         </android.support.v4.view.ViewPager>
 
 
         <View
             android:id="@+id/horizontal_line2"
-            android:layout_below="@id/layout_tabungan"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#e6e6e6"
-            android:layout_marginTop="16dp"/>
+            android:layout_below="@id/layout_tabungan"
+            android:layout_marginTop="16dp"
+            android:background="#e6e6e6" />
 
         <RelativeLayout
             android:id="@+id/layout_berita"
@@ -218,18 +213,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Berita"
-                android:textStyle="bold"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/tv_see_all_berita"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/ic_keyboard_arrow_right"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="12dp"
-                android:layout_alignParentRight="true"/>
+                android:background="@drawable/ic_keyboard_arrow_right" />
 
 
         </RelativeLayout>
