@@ -2,20 +2,20 @@
 <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout
         android:id="@+id/layout_banner"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="140dp"
         app:corner_radius="8dp">
 
         <ImageView
             android:id="@+id/img_banner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/a"
             android:background="@drawable/rounded_white"
             android:scaleType="centerCrop"
