@@ -8,10 +8,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import okhttp3.ResponseBody;
+import bodoamat.samkuriang.models.Customer;
+import bodoamat.samkuriang.models.Result;
+import bodoamat.samkuriang.utils.ConfigUtils;
+import bodoamat.samkuriang.utils.Service;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,27 +56,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     private void userSignUp() {
-        String nama = editTextNama.getText().toString().trim();
-        String alamat = editTextAlamat.getText().toString().trim();
-        String no_hp = editTextNo.getText().toString().trim();
+        String name = editTextNama.getText().toString().trim();
+        String address = editTextAlamat.getText().toString().trim();
+        String phone_number = editTextNo.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String confirm_password = editTextCPassword.getText().toString().trim();
 
 
-        if (nama.isEmpty()) {
+        if (name.isEmpty()) {
             editTextNama.setError("Name is required");
             editTextNama.requestFocus();
             return;
         }
 
-        if (alamat.isEmpty()) {
+        if (address.isEmpty()) {
             editTextAlamat.setError("Address is required");
             editTextAlamat.requestFocus();
             return;
         }
 
-        if (no_hp.isEmpty()) {
+        if (phone_number.isEmpty()) {
             editTextNo.setError("Phone number is required");
             editTextNo.requestFocus();
             return;
@@ -113,6 +119,44 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         /*Do register using the api call*/
+        // building retrofit object
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.43.153:5000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //Defining retrofit api service
+        Service service = retrofit.create(Service.class);
+
+        //Defining the user object as we need to pass it with the call
+        Customer customer = new Customer(name, email, password, address, phone_number);
+
+        //defining the call
+        Call<Result> call = service.createCustomer(
+                customer.getName(),
+                customer.getEmail(),
+                customer.getPassword(),
+                customer.getAddress(),
+                customer.getPhone_number()
+        );
+
+        //calling the api
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                //hiding progress dialog
+                //progressDialog.dismiss();
+
+                //displaying the message from the response as toast
+                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+                //progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 
