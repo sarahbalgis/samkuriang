@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     // banner
     ViewPager viewPagerBanner;
     List<Integer> dataImage = new ArrayList<>();
-    ImageView indicator1, indicator2, indicator3, indicator4;
+    ImageView indicator1, indicator2, indicator3;
 
     // timer pada banner
     private Timer timer;

@@ -15,7 +15,7 @@ public class BeritaAdapterPager extends PagerAdapter {
 
     private List<ModelBerita> modelBeritas;
     private LayoutInflater layoutInflater;
-    private Context context;
+    private HomeFragment context;
 
     public BeritaAdapterPager(List<ModelBerita> modelBeritas, HomeFragment context){
         this.modelBeritas = modelBeritas;
@@ -35,6 +35,7 @@ public class BeritaAdapterPager extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        Context context = container.getContext();
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.item_berita, container, false);
 

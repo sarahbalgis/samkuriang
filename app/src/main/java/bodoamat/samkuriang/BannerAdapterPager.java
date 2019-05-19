@@ -13,10 +13,13 @@ import com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class BannerAdapterPager extends PagerAdapter {
 
     HomeFragment context;
     List<Integer> dataImage = new ArrayList<>();
+
 
     public BannerAdapterPager(HomeFragment context, List<Integer> dataImage) {
         this.context = context;
@@ -26,6 +29,7 @@ public class BannerAdapterPager extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        Context context = container.getContext();
 
         //  cara membuat view. layout ingin ditambahkan di context yang mana sih
         View view = LayoutInflater.from(context).inflate(R.layout.item_banner, container, false);

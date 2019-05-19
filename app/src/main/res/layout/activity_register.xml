@@ -18,7 +18,7 @@
     <RelativeLayout
         android:id="@+id/bgWhite"
         android:layout_width="match_parent"
-        android:layout_height="485dp"
+        android:layout_height="540dp"
         android:layout_centerInParent="true"
         android:background="@drawable/rounded_white"
         android:layout_margin="20dp"
@@ -153,11 +153,36 @@
             android:textColorHint="@color/hitam"
             android:textSize="14sp" />
 
+
+        <ImageView
+            android:id="@+id/ic_confirm_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_password"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_action_lock_closed" />
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_password"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ic_confirm_password"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="14sp" />
+
+
+
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/ic_password"
+            android:layout_below="@id/ic_confirm_password"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/round_button"
@@ -202,7 +227,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/logo_samkuriang"
         android:scaleType="fitXY"
         android:layout_alignParentRight="true"
