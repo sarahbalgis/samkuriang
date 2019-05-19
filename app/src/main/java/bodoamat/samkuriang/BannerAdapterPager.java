@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout;
 
@@ -16,10 +15,10 @@ import java.util.List;
 
 public class BannerAdapterPager extends PagerAdapter {
 
-    Context context;
+    HomeFragment context;
     List<Integer> dataImage = new ArrayList<>();
 
-    public BannerAdapterPager(Context context, List<Integer> dataImage) {
+    public BannerAdapterPager(HomeFragment context, List<Integer> dataImage) {
         this.context = context;
         this.dataImage = dataImage;
     }

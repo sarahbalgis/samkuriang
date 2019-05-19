@@ -7,9 +7,10 @@
     <color name="biru_tua">#002031</color>
     <color name="hijau">#055a3d</color>
     <color name="hijau_muda">#31A05E</color>
-    <color name="abu_muda">#F5F4EF</color>
+
     <color name="abu">#e6e6e6</color>
     <color name="hitam">#000000</color>
+    <color name="abu_muda">#fffefe</color>
 
 
 </resources>
