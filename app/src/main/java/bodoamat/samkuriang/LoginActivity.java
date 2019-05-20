@@ -1,64 +1,109 @@
 package bodoamat.samkuriang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
-//import com.google.android.gms.auth.api.signin.GoogleSignIn;
-//import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-//import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-//import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-//import com.google.android.gms.common.api.ApiException;
-//import com.google.android.gms.tasks.Task;
+import org.jetbrains.annotations.NotNull;
 
-public class LoginActivity extends AppCompatActivity {
+import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.models.Result;
+import bodoamat.samkuriang.utils.Service;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static bodoamat.samkuriang.utils.ConfigUtils.BASE_URL;
 
 
-    TextView txtSignUp;
-    Button btnSignIn;
-    private boolean doubleBackToExitPressedOnce = false;
+public class LoginActivity extends AppCompatActivity  implements View.OnClickListener{
 
+    private EditText editTextEmail, editTextPassword;
+    private boolean doubleBackToExitPressedOnce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //sign up
-        txtSignUp = findViewById(R.id.textSignUp);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
-        txtSignUp.setOnClickListener(new View.OnClickListener() {
+        // sign in (biasa)
+       findViewById(R.id.btnSignIn).setOnClickListener(this);
+
+        //if user is already logged in openeing the profile activity
+        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+        }
+    }
+
+    private void userSignIn() {
+
+
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //Defining retrofit api service
+        Service service = retrofit.create(Service.class);
+
+        //defining the call
+        Call<Result> call = service.loginCustomer(email, password);
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Signing In...");
+        progressDialog.show();
+
+        //calling the api
+        call.enqueue(new Callback<Result>() {
             @Override
-            public void onClick(View view) {
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                progressDialog.dismiss();
+                    if (!response.body().getError()) {
+                        finish();
+                        SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    }
+                }
+
+
+
+            @Override
+            public void onFailure(Call<Result> call,Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnSignIn:
+                userSignIn();
+                break;
+            case R.id.textSignUp:
                 Intent intent = new Intent();
                 intent.setClass(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
-            }
-        });
-        //end - sign up
-
-        // sign in (biasa)
-        btnSignIn = findViewById(R.id.btnSignIn);
-
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        //end - sign in (biasa)
+        }
     }
+
+
 
     //double click to exit
     @Override

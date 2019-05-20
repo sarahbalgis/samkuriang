@@ -23,10 +23,12 @@ public class Result {
     }
 
     public String getMessage() {
+
         return message;
     }
 
     public Customer getCustomer() {
+
         return customer;
     }
 }
