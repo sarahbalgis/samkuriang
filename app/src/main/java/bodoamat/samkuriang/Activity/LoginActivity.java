@@ -1,16 +1,17 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
-
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.helper.SharedPrefManager;
 import bodoamat.samkuriang.models.Result;
 import bodoamat.samkuriang.utils.Service;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
 
+
         // sign in (biasa)
        findViewById(R.id.btnSignIn).setOnClickListener(this);
 
@@ -51,6 +53,31 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
 
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+
+
+        if (email.isEmpty()) {
+            editTextEmail.setError("Email is required");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Enter a valid email");
+            editTextEmail.requestFocus();
+            return;
+        }
+
+        if (password.isEmpty()) {
+            editTextPassword.setError("Password required");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6) {
+            editTextPassword.setError("Password should be atleast 6 character");
+            editTextPassword.requestFocus();
+            return;
+        }
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -76,10 +103,10 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
                         finish();
                         SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        Toast.makeText(getApplicationContext(), "login berhasil", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Login Successfully!", Toast.LENGTH_LONG).show();
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "invalid username password", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Invalid Email or Password", Toast.LENGTH_LONG).show();
                     }
                 }
 

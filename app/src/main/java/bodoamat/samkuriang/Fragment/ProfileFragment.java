@@ -1,31 +1,22 @@
 package bodoamat.samkuriang.Fragment;
 
 import android.content.Intent;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import javax.security.auth.login.LoginException;
 
-import org.w3c.dom.Text;
-
+import bodoamat.samkuriang.Activity.LoginActivity;
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.helper.SharedPrefManager;
 
 public class ProfileFragment extends Fragment {
+
+    Button btnSignOut;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -36,6 +27,21 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       return inflater.inflate(R.layout.fragment_profile, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        btnSignOut = rootView.findViewById(R.id.btnSignOut);
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPrefManager.getInstance(getActivity()).logout();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        return rootView;
+
     }
+
 }

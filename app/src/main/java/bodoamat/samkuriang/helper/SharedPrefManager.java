@@ -14,7 +14,6 @@ public class SharedPrefManager {
 
     private static final String KEY_CUSTOMERS_ID = "keycustomersid";
     private static final String KEY_CUSTOMERS_NAME = "keycustomersname";
-//    private static final String KEY_CUSTOMERS_PASSWORD = "keycustomerspassword";
     private static final String KEY_CUSTOMERS_EMAIL = "keycustomersemail";;
 
     private SharedPrefManager(Context context) {
@@ -33,7 +32,6 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_CUSTOMERS_ID, customer.getId());
         editor.putString(KEY_CUSTOMERS_NAME, customer.getName());
-//        editor.putString(KEY_CUSTOMERS_PASSWORD, customer.getPassword());
         editor.putString(KEY_CUSTOMERS_EMAIL, customer.getEmail());
         editor.apply();
         return true;
@@ -51,7 +49,6 @@ public class SharedPrefManager {
         return new Customer(
                 sharedPreferences.getInt(KEY_CUSTOMERS_ID, 0),
                 sharedPreferences.getString(KEY_CUSTOMERS_NAME, null),
-//                sharedPreferences.getString(KEY_CUSTOMERS_PASSWORD, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null)
 
         );

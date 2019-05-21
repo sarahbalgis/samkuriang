@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
+    tools:context="Fragment.HomeFragment"
     android:background="@color/abu_muda">
 
     <ImageView
@@ -305,6 +305,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="8dp"
+                                android:layout_marginRight="12dp"
                                 android:clipToPadding="false"
                                 android:foregroundGravity="center"
                                 android:overScrollMode="never" />

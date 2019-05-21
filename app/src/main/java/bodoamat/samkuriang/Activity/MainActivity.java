@@ -1,20 +1,26 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import bodoamat.samkuriang.Fragment.HistoryFragment;
 import bodoamat.samkuriang.Fragment.HomeFragment;
 import bodoamat.samkuriang.Fragment.MapsFragment;
 import bodoamat.samkuriang.Fragment.ProfileFragment;
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.helper.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
+
+    FloatingActionButton btnCamera;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -38,11 +44,9 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
 
-//                case R.id.action_image:
-//                    CameraFragment cameraFragment = new CameraFragment();
-//                    FragmentTransaction CameraFragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                    CameraFragmentTransaction.replace(R.id.content, cameraFragment);
-//                    CameraFragmentTransaction.commit();
+//                case R.id.camera:
+//                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+//                    startActivity(intent);
 //
 //                    return true;
 
@@ -68,16 +72,21 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnCamera = findViewById(R.id.floating_action_button);
 
-        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@color/abu_muda">
+    tools:context=".Activity.RegisterActivity"
+    android:background="#f6f6f6">
 
     <!--Top Background-->
     <ImageView
@@ -18,9 +18,9 @@
     <RelativeLayout
         android:id="@+id/bgWhite"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
+        android:layout_height="490dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/rounded_white"
+        android:background="@drawable/round_white"
         android:layout_margin="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signUpText"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/ic_action_user" />
 
         <EditText
@@ -56,20 +56,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signUpText"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="28dp"
+            android:layout_toEndOf="@+id/ic_nama"
             android:layout_toRightOf="@+id/ic_email"
             android:hint="Nama"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/ic_alamat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_nama"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/ic_action_location" />
 
         <EditText
@@ -78,20 +80,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_nama"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/ic_password"
             android:hint="Alamat"
             android:inputType="textPostalAddress"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/ic_nohp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_alamat"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/ic_action_phone" />
 
         <EditText
@@ -100,13 +102,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_alamat"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/ic_password"
             android:hint="No. Handphone"
             android:inputType="number"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
 
         <ImageView
@@ -114,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_nohp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/ic_action_mail" />
 
         <EditText
@@ -123,20 +125,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextNoHp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="2dp"
             android:layout_toRightOf="@+id/ic_email"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/ic_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_email"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/ic_action_lock_closed" />
 
         <EditText
@@ -145,13 +147,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_email"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/ic_password"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
 
         <ImageView
@@ -159,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_password"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:src="@drawable/ic_action_lock_closed" />
 
         <EditText
@@ -168,13 +170,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_password"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/ic_confirm_password"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
 
 
@@ -184,7 +186,7 @@
             android:layout_height="40dp"
             android:layout_below="@id/ic_confirm_password"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/round_button"
             android:text="Sign Up"
             android:textAllCaps="false"
@@ -196,7 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/btnSignUp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:text="Atau"
             android:textColor="@color/hitam" />
 
@@ -206,7 +208,7 @@
             android:layout_height="40dp"
             android:layout_below="@id/textOr"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:background="@drawable/round_white"
             android:drawableLeft="@drawable/btn_google"
             android:text="@string/google_sign_up"
@@ -224,14 +226,6 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/logo_samkuriang"
-        android:scaleType="fitXY"
-        android:layout_alignParentRight="true"
-        />
 
     <TextView
         android:id="@+id/textHave"

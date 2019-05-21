@@ -1,4 +1,4 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,11 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.IOException;
-
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
 import bodoamat.samkuriang.utils.Service;
@@ -161,8 +157,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     //starting profile activity
                     //Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     finish();
-                    SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
+                    String message= editTextEmail.getText().toString();
+                   // SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    intent.putExtra("message", message);
                     startActivity(intent);
                 }
 
@@ -203,9 +201,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     //event back disable
-    @Override
-    public void onBackPressed(){
-    }
+//    @Override
+//    public void onBackPressed(){
+//    }
     //end - event back disable
 
 
