@@ -14,12 +14,20 @@ import retrofit2.http.Path;
 public interface Service {
     //The register call
     @FormUrlEncoded
-    @POST("api/customers/register")
+    @POST("customers/register")
     Call<Result> createCustomer(
             @Field("name") String name,
             @Field("email") String email,
             @Field("password") String password,
             @Field("address") String address,
             @Field("phone_number") String phone_number
+    );
+
+    // login
+    @FormUrlEncoded
+    @POST("customers/login")
+    Call<Result> loginCustomer (
+        @Field("email") String email,
+        @Field("password") String password
     );
 }

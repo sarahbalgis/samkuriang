@@ -121,7 +121,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         /*Do register using the api call*/
         // building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.153:5000/")
+                .baseUrl("http://192.168.1.102:8000/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -148,13 +148,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 //progressDialog.dismiss();
 
                 //displaying the message from the response as toast
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<Result> call, Throwable t) {
                 //progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_LONG).show();
             }
         });
     }
