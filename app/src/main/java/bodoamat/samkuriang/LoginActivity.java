@@ -1,66 +1,60 @@
 package bodoamat.samkuriang;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-
-public class LoginActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
-    TextView txtSignUp;
-    Button btnSignIn;
-    private boolean doubleBackToExitPressedOnce = false;
+public class LoginActivity extends AppCompatActivity  implements View.OnClickListener{
 
+    private EditText editTextEmail, editTextPassword;
+    private boolean doubleBackToExitPressedOnce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword1);
+        Intent intent=getIntent();
+        editTextEmail.setText(intent.getStringExtra("message"));
+
+        // sign in (biasa)
+       findViewById(R.id.btnSignIn).setOnClickListener(this);
+    }
+
+    private void userSignIn() {
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
-        //sign up
-        txtSignUp = findViewById(R.id.textSignUp);
-
-        txtSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnSignIn:
+                userSignIn();
+                break;
+            case R.id.textSignUp:
                 Intent intent = new Intent();
                 intent.setClass(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
-            }
-        });
-        //end - sign up
-
-        // sign in (biasa)
-        btnSignIn = findViewById(R.id.btnSignIn);
-
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        //end - sign in (biasa)
+        }
     }
+
+
 
     //double click to exit
     @Override

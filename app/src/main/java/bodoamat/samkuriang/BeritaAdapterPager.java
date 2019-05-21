@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import bodoamat.samkuriang.Fragment.HomeFragment;
+
 public class BeritaAdapterPager extends PagerAdapter {
 
     private List<ModelBerita> modelBeritas;
