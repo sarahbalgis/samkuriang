@@ -27,6 +27,7 @@ public class BannerAdapterPager extends PagerAdapter {
         this.dataImage = dataImage;
     }
 
+
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
