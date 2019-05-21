@@ -1,5 +1,6 @@
 package bodoamat.samkuriang;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +12,7 @@ import bodoamat.samkuriang.Fragment.HistoryFragment;
 import bodoamat.samkuriang.Fragment.HomeFragment;
 import bodoamat.samkuriang.Fragment.MapsFragment;
 import bodoamat.samkuriang.Fragment.ProfileFragment;
+import bodoamat.samkuriang.helper.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);

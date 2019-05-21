@@ -1,16 +1,19 @@
 package bodoamat.samkuriang;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+
+import bodoamat.samkuriang.helper.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
-import bodoamat.samkuriang.utils.ConfigUtils;
 import bodoamat.samkuriang.utils.Service;
 
 import retrofit2.Call;
@@ -19,15 +22,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static bodoamat.samkuriang.utils.ConfigUtils.BASE_URL;
+
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView txtSignIn;
     private EditText editTextNama, editTextAlamat, editTextNo, editTextEmail, editTextPassword, editTextCPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
 
         //edit text
         editTextNama = findViewById(R.id.editTextNama);
@@ -39,23 +45,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //button sign up
         findViewById(R.id.btnSignUp).setOnClickListener(this);
-
-//        //sign in
-//        txtSignIn = findViewById(R.id.textSignIn);
-//
-//        txtSignIn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setClass(RegisterActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        //end - sign in
     }
 
 
     private void userSignUp() {
+
         String name = editTextNama.getText().toString().trim();
         String address = editTextAlamat.getText().toString().trim();
         String phone_number = editTextNo.getText().toString().trim();
@@ -118,10 +112,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+
+        //defining a progress dialog to show while signing up
+
         /*Do register using the api call*/
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Signing Up...");
+        progressDialog.show();
+
         // building retrofit object
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.102:8000/api/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -145,16 +147,36 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 //hiding progress dialog
-                //progressDialog.dismiss();
+                progressDialog.dismiss();
 
                 //displaying the message from the response as toast
-                Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Register Succesfully!", Toast.LENGTH_LONG).show();
+
+                //if there is no error
+                if (!response.body().getError()) {
+                    //starting profile activity
+                    finish();
+                    SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+
+                //hiding progress dialog
+                /* progressDialog.dismiss();
+
+                String message= editTextEmail.getText().toString();
+                Toast.makeText(getApplicationContext(), "Register Successfully!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.putExtra("message", message);
+                startActivity(intent); */
+
             }
 
+
             @Override
-            public void onFailure(Call<Result> call, Throwable t) {
-                //progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_LONG).show();
+            public void onFailure( Call<Result> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -167,6 +189,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 userSignUp();
                 break;
             case R.id.textSignIn:
+                Intent intent = new Intent();
+                intent.setClass(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
     }
