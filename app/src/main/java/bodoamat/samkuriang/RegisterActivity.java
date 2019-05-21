@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+
 import bodoamat.samkuriang.helper.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
@@ -149,12 +151,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 //hiding progress dialog
                 progressDialog.dismiss();
 
+                String s = null;
+
                 //displaying the message from the response as toast
                 Toast.makeText(getApplicationContext(), "Register Succesfully!", Toast.LENGTH_LONG).show();
 
                 //if there is no error
                 if (!response.body().getError()) {
                     //starting profile activity
+                    //Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     finish();
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

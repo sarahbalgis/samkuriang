@@ -30,4 +30,8 @@ public interface Service {
         @Field("email") String email,
         @Field("password") String password
     );
+
+    // get customers
+    @GET("users")
+    Call<Customer> getCustomer();
 }

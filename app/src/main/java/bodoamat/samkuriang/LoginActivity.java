@@ -76,9 +76,12 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
                         finish();
                         SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Toast.makeText(getApplicationContext(), "login berhasil", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "invalid username password", Toast.LENGTH_LONG).show();
                     }
                 }
-
 
 
             @Override
