@@ -10,11 +10,11 @@ public class SharedPrefManager {
     private static SharedPrefManager mInstance;
     private static Context mCtx;
 
-    private static final String SHARED_PREF_NAME = "simplifiedcodingsharedprefretrofit";
+    private static final String SHARED_PREF_NAME = "data";
 
-    private static final String KEY_CUSTOMERS_ID = "keycustomersid";
-    private static final String KEY_CUSTOMERS_NAME = "keycustomersname";
-    private static final String KEY_CUSTOMERS_EMAIL = "keycustomersemail";;
+    private static final String KEY_CUSTOMERS_ID = "customersid";
+    private static final String KEY_CUSTOMERS_NAME = "customersname";
+    private static final String KEY_CUSTOMERS_EMAIL = "customersemail";;
 
     private SharedPrefManager(Context context) {
         mCtx = context;
