@@ -147,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 //hiding progress dialog
                 progressDialog.dismiss();
 
-                String s = null;
+//                String s = null;
 
                 //displaying the message from the response as toast
                 Toast.makeText(getApplicationContext(), "Register Succesfully!", Toast.LENGTH_LONG).show();

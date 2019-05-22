@@ -56,10 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/signUpText"
-            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="28dp"
-            android:layout_toEndOf="@+id/ic_nama"
             android:layout_toRightOf="@+id/ic_email"
             android:hint="Nama"
             android:textColor="@color/hitam"
@@ -79,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_nama"
+            android:layout_marginRight="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/ic_password"
@@ -103,6 +103,7 @@
             android:layout_below="@+id/ic_alamat"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/ic_password"
             android:hint="No. Handphone"
             android:inputType="number"
@@ -116,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_nohp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="13dp"
             android:src="@drawable/ic_action_mail" />
 
         <EditText
@@ -125,6 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextNoHp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@+id/ic_email"
             android:hint="E-mail"
@@ -138,22 +140,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_email"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_action_lock_closed" />
 
-        <EditText
-            android:id="@+id/editTextPassword"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_email"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/ic_password"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColor="@color/hitam"
-            android:textColorHint="@color/hitam"
-            android:textSize="15sp" />
+            android:layout_marginLeft="11dp"
+            app:hintEnabled="false"
+            app:passwordToggleDrawable="@drawable/toggle_pass"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/hitam"
+            android:layout_centerInParent="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_email"
+                android:layout_marginLeft="36dp"
+                android:layout_toRightOf="@+id/ic_password"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/hitam"
+                android:textColorHint="@color/hitam"
+                android:textSize="15sp" />
+
+        </android.support.design.widget.TextInputLayout>
 
 
         <ImageView
@@ -161,22 +175,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_password"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_action_lock_closed" />
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic_password"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="11dp"
+            app:hintEnabled="false"
+            app:passwordToggleDrawable="@drawable/toggle_pass"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/hitam"
+            android:layout_centerInParent="true">
+
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/editTextConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ic_password"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="11dp"
             android:layout_toRightOf="@+id/ic_confirm_password"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:textColor="@color/hitam"
             android:textColorHint="@color/hitam"
             android:textSize="15sp" />
+
+        </android.support.design.widget.TextInputLayout>
 
 
 

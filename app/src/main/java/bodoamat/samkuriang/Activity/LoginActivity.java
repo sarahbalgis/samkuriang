@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
+        Intent intent = new Intent();
+        editTextEmail.setText(getIntent().getStringExtra("message"));
 
 
         // sign in (biasa)
