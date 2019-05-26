@@ -9,14 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import bodoamat.samkuriang.Fragment.HistoryFragment;
 import bodoamat.samkuriang.Fragment.HomeFragment;
 import bodoamat.samkuriang.Fragment.MapsFragment;
 import bodoamat.samkuriang.Fragment.ProfileFragment;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 

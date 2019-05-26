@@ -9,7 +9,6 @@
         android:id="@+id/fotoProfile"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/foto_profile"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="50dp"/>
 
@@ -17,7 +16,7 @@
         android:id="@+id/namaProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Siti Sarah Balgis"
+        android:text="Nama"
         android:textColor="@color/hitam"
         android:textSize="16sp"
         android:layout_toRightOf="@+id/fotoProfile"
@@ -28,7 +27,7 @@
         android:id="@+id/emailProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sarahbalgis98@gmail.com"
+        android:text="Email"
         android:textColor="@color/hitam"
         android:textSize="14sp"
         android:layout_toRightOf="@+id/fotoProfile"

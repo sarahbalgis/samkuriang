@@ -32,6 +32,13 @@ public interface Service {
     );
 
     // get customers
-    @GET("users")
-    Call<Customer> getCustomer();
+//     @GET("customers")
+//     Call<Customer> getCustomer(int id, String name, String email);
+
+    @FormUrlEncoded
+    @GET("customers/profile")
+    Call<Customer> getCustomer(int id, String name, String email);
+
+
+
 }

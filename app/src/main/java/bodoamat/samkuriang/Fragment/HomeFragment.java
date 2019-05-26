@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,13 @@ import bodoamat.samkuriang.ModelBerita;
 import bodoamat.samkuriang.BannerAdapterPager;
 import bodoamat.samkuriang.BeritaAdapterPager;
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.models.Customer;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
+
+    //text
+    TextView haiNama;
 
     // banner
     ViewPager viewPagerBanner;
@@ -43,6 +49,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.activity_home, container, false);
+
+        //text
+        haiNama = rootView.findViewById(R.id.tv_hai_nama);
+
+        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
+
+        String[] namaPanjang = customer.getName().split(" ");
+        haiNama.setText(namaPanjang[0]);
 
         // banner
         viewPagerBanner= rootView.findViewById(R.id.viewPagerBanner);

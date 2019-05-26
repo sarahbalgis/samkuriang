@@ -150,12 +150,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 //                String s = null;
 
                 //displaying the message from the response as toast
-                Toast.makeText(getApplicationContext(), "Register Succesfully!", Toast.LENGTH_LONG).show();
+
 
                 //if there is no error
                 if (!response.body().getError()) {
-                    //starting profile activity
-                    //Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Register Succesfully!", Toast.LENGTH_LONG).show();
                     finish();
                     String message= editTextEmail.getText().toString();
                    // SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
@@ -163,15 +162,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     intent.putExtra("message", message);
                     startActivity(intent);
                 }
-
-                //hiding progress dialog
-                /* progressDialog.dismiss();
-
-                String message= editTextEmail.getText().toString();
-                Toast.makeText(getApplicationContext(), "Register Successfully!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                intent.putExtra("message", message);
-                startActivity(intent); */
 
             }
 
