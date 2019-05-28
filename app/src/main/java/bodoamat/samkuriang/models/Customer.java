@@ -16,6 +16,14 @@ public class Customer {
         this.phone_number = phone_number;
     }
 
+    public Customer(int id, String name, String email, String address, String phone_number){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone_number = phone_number;
+    }
+
     public Customer(int id, String name, String email, String password, String address, String phone_number){
         this.id = id;
         this.name = name;
@@ -25,20 +33,11 @@ public class Customer {
         this.phone_number = phone_number;
     }
 
-    public Customer(int id, String name, String email){
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
-    public Customer(String name, String email){
-        this.name = name;
-        this.email = email;
-    }
 
     public int getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
@@ -54,6 +53,7 @@ public class Customer {
     public String getAddress() {
         return address;
     }
+
     public String getPhone_number() {
         return phone_number;
     }

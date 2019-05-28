@@ -35,7 +35,7 @@ public class BannerAdapterPager extends PagerAdapter {
         //  cara membuat view. layout ingin ditambahkan di context yang mana sih
         View view = LayoutInflater.from(context).inflate(R.layout.item_banner, container, false);
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.img_banner);
+        ImageView imageView = view.findViewById(R.id.img_banner);
         imageView.setImageResource(dataImage.get(position));
         container.addView(view);
 

@@ -14,7 +14,9 @@ public class SharedPrefManager {
 
     private static final String KEY_CUSTOMERS_ID = "customersid";
     private static final String KEY_CUSTOMERS_NAME = "customersname";
-    private static final String KEY_CUSTOMERS_EMAIL = "customersemail";;
+    private static final String KEY_CUSTOMERS_EMAIL = "customersemail";
+    private static final String KEY_CUSTOMERS_ADDRESS = "customersaddress";
+    private static final String KEY_CUSTOMERS_PHONE_NUMBER = "customershp";
 
     private SharedPrefManager(Context context) {
         mCtx = context;
@@ -33,15 +35,15 @@ public class SharedPrefManager {
         editor.putInt(KEY_CUSTOMERS_ID, customer.getId());
         editor.putString(KEY_CUSTOMERS_NAME, customer.getName());
         editor.putString(KEY_CUSTOMERS_EMAIL, customer.getEmail());
+        editor.putString(KEY_CUSTOMERS_ADDRESS, customer.getAddress());
+        editor.putString(KEY_CUSTOMERS_PHONE_NUMBER, customer.getPhone_number());
         editor.apply();
         return true;
     }
 
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null) != null)
-            return true;
-        return false;
+        return sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null) != null;
     }
 
     public Customer getCustomer() {
@@ -50,7 +52,9 @@ public class SharedPrefManager {
 
                 sharedPreferences.getInt(KEY_CUSTOMERS_ID, 0),
                 sharedPreferences.getString(KEY_CUSTOMERS_NAME, null),
-                sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null)
+                sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null),
+                sharedPreferences.getString(KEY_CUSTOMERS_ADDRESS, null),
+                sharedPreferences.getString(KEY_CUSTOMERS_PHONE_NUMBER, null)
 
         );
     }

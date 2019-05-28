@@ -4,7 +4,6 @@ import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -31,14 +30,19 @@ public interface Service {
         @Field("password") String password
     );
 
-    // get customers
-//     @GET("customers")
-//     Call<Customer> getCustomer(int id, String name, String email);
-
     @FormUrlEncoded
     @GET("customers/profile")
     Call<Customer> getCustomer(int id, String name, String email);
 
+    @FormUrlEncoded
+    @POST("customers/updateProfile/{id}")
+    Call<Result> updateProfile(
+            @Path("id") String id,
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("address") String address,
+            @Field("phone_number") String phone_number
 
+    );
 
 }

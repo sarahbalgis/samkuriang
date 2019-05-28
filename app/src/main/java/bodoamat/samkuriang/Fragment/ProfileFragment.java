@@ -2,8 +2,6 @@ package bodoamat.samkuriang.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +18,8 @@ import bodoamat.samkuriang.models.Customer;
 
 public class ProfileFragment extends Fragment {
 
-    Button btnSignOut;
-    TextView profileNama, profileEmail;
+    Button btnOut;
+    TextView profileNama, profileAddress;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -40,18 +38,20 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getActivity();
 
-        btnSignOut = view.findViewById(R.id.btnSignOut);
+
+
         profileNama = view.findViewById(R.id.namaProfile);
-        profileEmail = view.findViewById(R.id.emailProfile);
+        profileAddress = view.findViewById(R.id.addressProfile);
+        btnOut = view.findViewById(R.id.btnOut);
 
         //get Customers
         Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         profileNama.setText(customer.getName());
-        profileEmail.setText(customer.getEmail());
+        profileAddress.setText(customer.getAddress());
 
 
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
+        btnOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPrefManager.getInstance(getActivity()).logout();
