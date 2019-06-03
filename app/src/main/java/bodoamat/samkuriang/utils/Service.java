@@ -1,6 +1,5 @@
 package bodoamat.samkuriang.utils;
 
-import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
 
 import retrofit2.Call;
@@ -8,6 +7,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface Service {
@@ -32,12 +32,12 @@ public interface Service {
 
     @FormUrlEncoded
     @GET("customers/profile")
-    Call<Customer> getCustomer(int id, String name, String email);
+    Call<Result> getCustomers();
 
     @FormUrlEncoded
-    @POST("customers/updateProfile/{id}")
+    @PUT("customers/update-profile/{id}")
     Call<Result> updateProfile(
-            @Path("id") String id,
+            @Path("id") int id,
             @Field("name") String name,
             @Field("email") String email,
             @Field("address") String address,

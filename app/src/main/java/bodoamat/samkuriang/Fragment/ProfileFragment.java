@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 
 import bodoamat.samkuriang.Activity.LoginActivity;
+import bodoamat.samkuriang.EditProfileActivity;
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.helper.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
@@ -18,7 +19,7 @@ import bodoamat.samkuriang.models.Customer;
 
 public class ProfileFragment extends Fragment {
 
-    Button btnOut;
+    Button btnOut, btnEdit;
     TextView profileNama, profileAddress;
 
     public ProfileFragment() {
@@ -43,12 +44,21 @@ public class ProfileFragment extends Fragment {
         profileNama = view.findViewById(R.id.namaProfile);
         profileAddress = view.findViewById(R.id.addressProfile);
         btnOut = view.findViewById(R.id.btnOut);
+        btnEdit = view.findViewById(R.id.editProfile);
 
         //get Customers
         Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         profileNama.setText(customer.getName());
         profileAddress.setText(customer.getAddress());
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
 
 
         btnOut.setOnClickListener(new View.OnClickListener() {

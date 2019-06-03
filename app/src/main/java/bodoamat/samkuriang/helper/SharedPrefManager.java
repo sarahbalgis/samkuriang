@@ -3,6 +3,8 @@ package bodoamat.samkuriang.helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 import bodoamat.samkuriang.models.Customer;
 
 public class SharedPrefManager {
@@ -12,11 +14,11 @@ public class SharedPrefManager {
 
     private static final String SHARED_PREF_NAME = "data";
 
-    private static final String KEY_CUSTOMERS_ID = "customersid";
-    private static final String KEY_CUSTOMERS_NAME = "customersname";
-    private static final String KEY_CUSTOMERS_EMAIL = "customersemail";
-    private static final String KEY_CUSTOMERS_ADDRESS = "customersaddress";
-    private static final String KEY_CUSTOMERS_PHONE_NUMBER = "customershp";
+    private static final String KEY_CUSTOMERS_ID = "id";
+    private static final String KEY_CUSTOMERS_NAME = "name";
+    private static final String KEY_CUSTOMERS_EMAIL = "email";
+    private static final String KEY_CUSTOMERS_ADDRESS = "address";
+    private static final String KEY_CUSTOMERS_PHONE_NUMBER = "phone_number";
 
     private SharedPrefManager(Context context) {
         mCtx = context;
