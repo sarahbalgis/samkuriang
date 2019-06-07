@@ -50,7 +50,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void updateProfile() {
-        final ProgressDialog progressDialog = new ProgressDialog(getApplicationContext());
+        final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating...");
         progressDialog.show();
 
@@ -66,7 +66,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         Service service = retrofit.create(Service.class);
 
-        Customer customer = new Customer(SharedPrefManager.getInstance(getApplicationContext()).getCustomer().getId(), name, email, address, phone_number);
+        Customer customer = new Customer(SharedPrefManager.getInstance(this).getCustomer().getId(), name, email, address, phone_number);
 
         Call<Result> call = service.updateProfile(
                 customer.getId(),
@@ -79,8 +79,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
+
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                 }
@@ -90,7 +92,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             public void onFailure(Call<Result> call, Throwable t) {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_LONG).show();
             }
         });
     }
