@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#055A3D</color>
-    <color name="colorPrimaryDark">#055A3D</color>
+    <color name="colorPrimary">#012833</color>
+    <color name="colorPrimaryDark">#012833</color>
     <color name="colorAccent">#EB4231</color>
     <color name="kuning">#F5E52E</color>
     <color name="biru_tua">#002031</color>
