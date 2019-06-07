@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="15dp"
     tools:context=".Activity.LoginActivity"
 
     android:background="#f6f6f6">
@@ -19,10 +18,9 @@
 
     <ImageView
         android:id="@+id/asset_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="220dp"
         android:src="@drawable/asset_scan"
-        android:screenReaderFocusable="true"
         android:scaleType="fitXY"
         android:layout_alignParentRight="true"/>
 
@@ -134,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bg_tengah_login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="Forget Password?"
         android:textAlignment="textEnd"
         android:textAllCaps="false"
@@ -142,14 +140,17 @@
         android:textColor="@color/hitam"
         android:textSize="14sp" />
 
+
+    r
+
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textForgetPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="21dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/round_button"
         android:fontFamily="@font/raleway_bold"
