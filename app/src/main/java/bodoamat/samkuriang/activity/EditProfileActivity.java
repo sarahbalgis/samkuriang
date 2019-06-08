@@ -54,26 +54,23 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
 
     private void updateProfile() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Updating...");
+        progressDialog.show();
 
         String name = editNama.getText().toString().trim();
         String email = editEmail.getText().toString().trim();
         String address = editAlamat.getText().toString().trim();
         String phone_number = editNomor.getText().toString().trim();
 
-
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Updating...");
-        progressDialog.show();
-
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
         Service service = retrofit.create(Service.class);
 
-        Customer customer = new Customer(SharedPrefManager.getInstance(this).getCustomer().getId(), name, email, address, phone_number);
+        Customer customer = new Customer(SharedPrefManager.getInstance(getApplicationContext()).getCustomer().getId(), name, email, address, phone_number);
 
         Call<Result> call = service.updateProfile(
                 customer.getId(),
@@ -82,9 +79,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 customer.getAddress(),
                 customer.getPhone_number()
         );
-
-        final EditProfileActivity self = this;
-
+        
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
