@@ -1,4 +1,4 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.helper;
 
 import android.annotation.SuppressLint;
 import android.support.design.internal.BottomNavigationItemView;

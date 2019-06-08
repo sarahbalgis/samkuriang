@@ -1,4 +1,4 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import bodoamat.samkuriang.Fragment.HomeFragment;
+import bodoamat.samkuriang.models.ModelBerita;
+import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.fragment.HomeFragment;
 
 public class BeritaAdapterPager extends PagerAdapter {
 

@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.Fragment;
+package bodoamat.samkuriang.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-import bodoamat.samkuriang.Activity.LoginActivity;
-import bodoamat.samkuriang.EditProfileActivity;
+import bodoamat.samkuriang.activity.LoginActivity;
+import bodoamat.samkuriang.activity.EditProfileActivity;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 
 

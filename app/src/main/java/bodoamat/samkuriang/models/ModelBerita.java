@@ -1,4 +1,4 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.models;
 
 public class ModelBerita {
     private int imgBerita;

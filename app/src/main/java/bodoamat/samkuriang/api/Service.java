@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.utils;
+package bodoamat.samkuriang.api;
 
 import bodoamat.samkuriang.models.Result;
 

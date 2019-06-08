@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.Activity;
+package bodoamat.samkuriang.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,11 +10,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import bodoamat.samkuriang.Fragment.HistoryFragment;
-import bodoamat.samkuriang.Fragment.HomeFragment;
-import bodoamat.samkuriang.Fragment.MapsFragment;
-import bodoamat.samkuriang.Fragment.ProfileFragment;
+import bodoamat.samkuriang.fragment.HistoryFragment;
+import bodoamat.samkuriang.fragment.HomeFragment;
+import bodoamat.samkuriang.fragment.MapsFragment;
+import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.helper.BottomNavigationViewHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-//        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
+       BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         HomeFragment homeFragment = new HomeFragment();

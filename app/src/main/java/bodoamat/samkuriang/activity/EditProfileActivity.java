@@ -1,7 +1,6 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import bodoamat.samkuriang.Fragment.ProfileFragment;
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
-import bodoamat.samkuriang.utils.ConfigUtils;
-import bodoamat.samkuriang.utils.Service;
+import bodoamat.samkuriang.api.ConfigUtils;
+import bodoamat.samkuriang.api.Service;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +40,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         btnEditSave.setOnClickListener(this);
 
-        Customer customer = SharedPrefManager.getInstance(getApplicationContext()).getCustomer();
+        Customer customer = SharedPrefManager.getInstance(this).getCustomer();
 
         editNama.setText(customer.getName());
         editEmail.setText(customer.getEmail());
@@ -76,14 +75,16 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 customer.getPhone_number()
         );
 
+        final EditProfileActivity self = this;
+
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
-
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-//                Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
+                    finish();
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                 }
             }
@@ -91,8 +92,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onFailure(Call<Result> call, Throwable t) {
                 progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-//                Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "gagal", Toast.LENGTH_LONG).show();
             }
         });
     }

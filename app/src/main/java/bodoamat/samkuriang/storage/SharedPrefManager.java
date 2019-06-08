@@ -1,9 +1,7 @@
-package bodoamat.samkuriang.helper;
+package bodoamat.samkuriang.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import java.util.List;
 
 import bodoamat.samkuriang.models.Customer;
 
@@ -31,7 +29,7 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public boolean loginCustomer(Customer customer) {
+    public void loginCustomer(Customer customer) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_CUSTOMERS_ID, customer.getId());
@@ -40,24 +38,23 @@ public class SharedPrefManager {
         editor.putString(KEY_CUSTOMERS_ADDRESS, customer.getAddress());
         editor.putString(KEY_CUSTOMERS_PHONE_NUMBER, customer.getPhone_number());
         editor.apply();
-        return true;
     }
 
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null) != null;
+        return sharedPreferences.getInt(KEY_CUSTOMERS_ID, -1) != -1;
     }
 
     public Customer getCustomer() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.apply();
         return new Customer(
-
-                sharedPreferences.getInt(KEY_CUSTOMERS_ID, 0),
+                sharedPreferences.getInt(KEY_CUSTOMERS_ID, -1),
                 sharedPreferences.getString(KEY_CUSTOMERS_NAME, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_ADDRESS, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_PHONE_NUMBER, null)
-
         );
     }
 
