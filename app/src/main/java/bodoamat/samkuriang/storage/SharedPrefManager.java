@@ -32,12 +32,13 @@ public class SharedPrefManager {
     public void loginCustomer(Customer customer) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
         editor.putInt(KEY_CUSTOMERS_ID, customer.getId());
         editor.putString(KEY_CUSTOMERS_NAME, customer.getName());
         editor.putString(KEY_CUSTOMERS_EMAIL, customer.getEmail());
         editor.putString(KEY_CUSTOMERS_ADDRESS, customer.getAddress());
         editor.putString(KEY_CUSTOMERS_PHONE_NUMBER, customer.getPhone_number());
-        editor.commit();
         editor.apply();
     }
 

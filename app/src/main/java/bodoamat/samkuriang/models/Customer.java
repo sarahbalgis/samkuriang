@@ -7,6 +7,14 @@ public class Customer {
     private String password;
     private String address;
     private String phone_number;
+    private String tabungan;
+    private String berat;
+
+    public Customer(int id, String tabungan, String berat) {
+        this.id = id;
+        this.tabungan = tabungan;
+        this.berat = berat;
+    }
 
     public Customer(String name, String email, String password, String address, String phone_number){
         this.name = name;
@@ -57,6 +65,10 @@ public class Customer {
     public String getPhone_number() {
         return phone_number;
     }
+
+    public String getTabungan() { return tabungan; }
+
+    public String getBerat() { return berat; }
 
 
 //    public void setId(int id) {

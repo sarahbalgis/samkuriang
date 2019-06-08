@@ -9,23 +9,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import bodoamat.samkuriang.api.ConfigUtils;
+import bodoamat.samkuriang.api.Service;
 import bodoamat.samkuriang.models.ModelBerita;
 import bodoamat.samkuriang.adapter.BannerAdapterPager;
 import bodoamat.samkuriang.adapter.BeritaAdapterPager;
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.models.Saving;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     //text
-    TextView haiNama;
+    TextView haiNama, saldoTabungan, beratSampah;
 
     // banner
     ViewPager viewPagerBanner;
@@ -52,11 +62,44 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         //text
         haiNama = rootView.findViewById(R.id.tv_hai_nama);
+        saldoTabungan = rootView.findViewById(R.id.saldo_tabungan);
+        beratSampah = rootView.findViewById(R.id.berat_sampah);
 
         Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         String[] namaPanjang = customer.getName().split(" ");
         haiNama.setText(namaPanjang[0]);
+
+
+        String tabungan = saldoTabungan.getText().toString().trim();
+        String berat = beratSampah.getText().toString().trim();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConfigUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Service service = retrofit.create(Service.class);
+
+        Call<Saving> call = service.getTabungan(
+                SharedPrefManager.getInstance(getActivity()).getCustomer().getId()
+        );
+
+        call.enqueue(new Callback<Saving>() {
+            @Override
+            public void onResponse(Call<Saving> call, Response<Saving> response) {
+                saldoTabungan.setText(response.body().getTabungan());
+                beratSampah.setText(response.body().getBerat());
+            }
+
+            @Override
+            public void onFailure(Call<Saving> call, Throwable t) {
+                Toast.makeText(getActivity(), "gagal", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
 
         // banner
         viewPagerBanner= rootView.findViewById(R.id.viewPagerBanner);

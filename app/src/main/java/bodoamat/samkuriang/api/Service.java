@@ -2,6 +2,7 @@ package bodoamat.samkuriang.api;
 
 import bodoamat.samkuriang.models.Result;
 
+import bodoamat.samkuriang.models.Saving;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -30,6 +31,12 @@ public interface Service {
         @Field("password") String password
     );
 
+    @GET("customers/tabungan/{id}")
+    Call<Saving> getTabungan(
+        @Path("id") int id
+    );
+
+
     @FormUrlEncoded
     @PUT("customers/update-profile/{id}")
     Call<Result> updateProfile(
@@ -40,5 +47,7 @@ public interface Service {
             @Field("phone_number") String phone_number
 
     );
+
+
 
 }

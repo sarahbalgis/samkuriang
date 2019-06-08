@@ -1,7 +1,6 @@
 package bodoamat.samkuriang.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,10 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.jetbrains.annotations.NotNull;
-
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
@@ -89,9 +85,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
-                    finish();
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
-                    startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
+                    finish();
+//                    startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
                 }
             }
 

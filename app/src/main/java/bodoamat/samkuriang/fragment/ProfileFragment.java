@@ -20,7 +20,6 @@ import bodoamat.samkuriang.models.Customer;
 
 public class ProfileFragment extends Fragment {
 
-    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     Button btnOut, btnEdit;
@@ -36,6 +35,7 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
+
     }
 
     @Override
@@ -70,10 +70,12 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 SharedPrefManager.getInstance(getActivity()).logout();
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 getActivity().startActivity(intent);
             }
         });
 
     }
+
 
 }

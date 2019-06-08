@@ -44,7 +44,9 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
         //if user is already logged in openeing the profile activity
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         }
     }
 
@@ -102,7 +104,9 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
                     if (!response.body().getError()) {
                         finish();
                         SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Login Successfully!", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "Invalid Email or Password", Toast.LENGTH_LONG).show();
