@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.utils;
+package bodoamat.samkuriang.api;
 
 import bodoamat.samkuriang.models.Result;
 
@@ -29,10 +29,6 @@ public interface Service {
         @Field("email") String email,
         @Field("password") String password
     );
-
-    @FormUrlEncoded
-    @GET("customers/profile")
-    Call<Result> getCustomers();
 
     @FormUrlEncoded
     @PUT("customers/update-profile/{id}")

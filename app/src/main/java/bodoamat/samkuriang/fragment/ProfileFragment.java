@@ -1,8 +1,9 @@
-package bodoamat.samkuriang.Fragment;
+package bodoamat.samkuriang.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +11,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-import bodoamat.samkuriang.Activity.LoginActivity;
-import bodoamat.samkuriang.EditProfileActivity;
+import bodoamat.samkuriang.activity.LoginActivity;
+import bodoamat.samkuriang.activity.EditProfileActivity;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 
 
 public class ProfileFragment extends Fragment {
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     Button btnOut, btnEdit;
     TextView profileNama, profileAddress;
@@ -47,7 +51,7 @@ public class ProfileFragment extends Fragment {
         btnEdit = view.findViewById(R.id.editProfile);
 
         //get Customers
-        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
+        Customer customer =  SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         profileNama.setText(customer.getName());
         profileAddress.setText(customer.getAddress());

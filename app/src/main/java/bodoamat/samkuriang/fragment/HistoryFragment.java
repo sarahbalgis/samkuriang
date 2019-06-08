@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.Fragment;
+package bodoamat.samkuriang.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

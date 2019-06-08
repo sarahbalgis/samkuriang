@@ -1,4 +1,4 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,7 +13,8 @@ import com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import bodoamat.samkuriang.Fragment.HomeFragment;
+import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.fragment.HomeFragment;
 
 
 public class BannerAdapterPager extends PagerAdapter {

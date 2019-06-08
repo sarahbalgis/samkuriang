@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.Activity;
+package bodoamat.samkuriang.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
-import bodoamat.samkuriang.utils.Service;
+import bodoamat.samkuriang.api.Service;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static bodoamat.samkuriang.utils.ConfigUtils.BASE_URL;
+import static bodoamat.samkuriang.api.ConfigUtils.BASE_URL;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {

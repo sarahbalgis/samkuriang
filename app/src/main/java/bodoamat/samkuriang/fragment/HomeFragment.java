@@ -1,4 +1,4 @@
-package bodoamat.samkuriang.Fragment;
+package bodoamat.samkuriang.fragment;
 
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import bodoamat.samkuriang.ModelBerita;
-import bodoamat.samkuriang.BannerAdapterPager;
-import bodoamat.samkuriang.BeritaAdapterPager;
+import bodoamat.samkuriang.models.ModelBerita;
+import bodoamat.samkuriang.adapter.BannerAdapterPager;
+import bodoamat.samkuriang.adapter.BeritaAdapterPager;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {

@@ -1,27 +1,26 @@
-package bodoamat.samkuriang.Activity;
+package bodoamat.samkuriang.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.SharedPrefManager;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Result;
-import bodoamat.samkuriang.utils.Service;
+import bodoamat.samkuriang.api.Service;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static bodoamat.samkuriang.utils.ConfigUtils.BASE_URL;
+import static bodoamat.samkuriang.api.ConfigUtils.BASE_URL;
 
 
 public class LoginActivity extends AppCompatActivity  implements View.OnClickListener{
@@ -36,7 +35,6 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
-        Intent intent = new Intent();
         editTextEmail.setText(getIntent().getStringExtra("message"));
 
 
