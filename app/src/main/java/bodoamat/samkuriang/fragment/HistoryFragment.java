@@ -48,7 +48,7 @@ public class HistoryFragment extends Fragment {
          * yang hanya berisi daftar item
          * disusun dari atas ke bawah
          */
-        layoutManager = new LinearLayoutManager(getActivity());z
+        layoutManager = new LinearLayoutManager(getActivity());
         rvView.setLayoutManager(layoutManager);
 
         adapter = new RecyclerViewAdapter(dataSet);
