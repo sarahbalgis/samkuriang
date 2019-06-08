@@ -14,7 +14,6 @@ public class Result {
     private Customer customer;
 
 
-
     public Result(Boolean error, String message, Customer customer) {
         this.error = error;
         this.message = message;
