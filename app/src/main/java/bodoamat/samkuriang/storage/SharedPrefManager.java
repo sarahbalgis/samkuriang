@@ -47,14 +47,14 @@ public class SharedPrefManager {
 
     public Customer getCustomer() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.apply();
         return new Customer(
-
                 sharedPreferences.getInt(KEY_CUSTOMERS_ID, -1),
                 sharedPreferences.getString(KEY_CUSTOMERS_NAME, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_ADDRESS, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_PHONE_NUMBER, null)
-
         );
     }
 
