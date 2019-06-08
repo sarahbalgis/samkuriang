@@ -50,7 +50,6 @@ public class ProfileFragment extends Fragment {
         btnOut = view.findViewById(R.id.btnOut);
         btnEdit = view.findViewById(R.id.editProfile);
 
-        //get Customers
         Customer customer =  SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         profileNama.setText(customer.getName());

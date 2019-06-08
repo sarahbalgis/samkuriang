@@ -9,11 +9,6 @@ public class Result {
     @SerializedName("message")
     private String message;
 
-    @SerializedName("tabungan")
-    private String tabungan;
-
-    @SerializedName("berat")
-    private String berat;
 
     @SerializedName("customer")
     private Customer customer;
@@ -26,10 +21,6 @@ public class Result {
         this.customer = customer;
     }
 
-    public Result(String tabungan, String berat) {
-        this.tabungan = tabungan;
-        this.berat = berat;
-    }
 
 
     public Boolean getError() {
@@ -44,14 +35,6 @@ public class Result {
     public Customer getCustomer() {
 
         return customer;
-    }
-
-    public String getTabungan() {
-        return tabungan;
-    }
-
-    public String getBerat() {
-        return berat;
     }
 
 
