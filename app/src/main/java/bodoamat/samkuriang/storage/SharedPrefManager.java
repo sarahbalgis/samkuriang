@@ -37,18 +37,19 @@ public class SharedPrefManager {
         editor.putString(KEY_CUSTOMERS_EMAIL, customer.getEmail());
         editor.putString(KEY_CUSTOMERS_ADDRESS, customer.getAddress());
         editor.putString(KEY_CUSTOMERS_PHONE_NUMBER, customer.getPhone_number());
+        editor.commit();
         editor.apply();
     }
 
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getInt(KEY_CUSTOMERS_ID, -1) != -1;
+        return sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null) != null;
     }
 
     public Customer getCustomer() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Customer(
-                sharedPreferences.getInt(KEY_CUSTOMERS_ID, -1),
+                sharedPreferences.getInt(KEY_CUSTOMERS_ID, 0),
                 sharedPreferences.getString(KEY_CUSTOMERS_NAME, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_EMAIL, null),
                 sharedPreferences.getString(KEY_CUSTOMERS_ADDRESS, null),
