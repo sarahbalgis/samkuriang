@@ -16,6 +16,7 @@ import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.helper.BottomNavigationViewHelper;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
             }
+
+
             return false;
         }
+
 
     };
 
@@ -97,5 +101,17 @@ public class MainActivity extends AppCompatActivity {
         HomeFragmentTransaction.commit();
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (!SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
+
 }
 

@@ -13,7 +13,7 @@
     <!--Top Background-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         android:src="@drawable/background_atas_login"
         android:scaleType="fitXY"/>
 
@@ -70,8 +70,7 @@
             android:layout_below="@id/textEmail"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
-            app:hintEnabled="false"
-            app:boxBackgroundMode="outline">
+            app:hintEnabled="false">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/editTextEmail"
@@ -79,10 +78,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/layoutEmail"
                 android:layout_alignTop="@+id/layoutEmail"
-                android:hint="example@gmail.com"
-                android:inputType="text"
                 android:fontFamily="@font/raleway_medium"
-                android:textColorHint="@color/hitam"
+                android:hint="input your e-mail"
+                android:inputType="textEmailAddress"
                 android:textSize="14sp" />
 
         </android.support.design.widget.TextInputLayout>
@@ -108,16 +106,14 @@
             app:hintEnabled="false"
             app:passwordToggleDrawable="@drawable/toggle_pass"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/hitam"
-            app:boxBackgroundMode="outline">
+            app:passwordToggleTint="@color/hitam">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="******"
+                android:hint="input your password"
                 android:inputType="textPassword"
-                android:textColorHint="@color/hitam"
                 android:textSize="14sp"
                 android:fontFamily="@font/raleway_medium"/>
 

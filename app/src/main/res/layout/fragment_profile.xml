@@ -166,7 +166,6 @@
                 android:text="Sign Out"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
-                android:textIsSelectable="true"
                 style="?android:attr/borderlessButtonStyle"/>
 
             <TextView

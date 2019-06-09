@@ -78,11 +78,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         Service service = retrofit.create(Service.class);
 
-        Call<Saving> call = service.getTabungan(
+        Call<Saving> callSaving = service.getTabungan(
                 SharedPrefManager.getInstance(getActivity()).getCustomer().getId()
         );
 
-        call.enqueue(new Callback<Saving>() {
+        callSaving.enqueue(new Callback<Saving>() {
             @Override
             public void onResponse(Call<Saving> call, Response<Saving> response) {
                 saldoTabungan.setText(response.body().getTabungan());

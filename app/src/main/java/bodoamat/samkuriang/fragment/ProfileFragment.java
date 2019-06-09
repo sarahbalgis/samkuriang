@@ -3,12 +3,13 @@ package bodoamat.samkuriang.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import bodoamat.samkuriang.activity.LoginActivity;
@@ -20,15 +21,19 @@ import bodoamat.samkuriang.models.Customer;
 
 public class ProfileFragment extends Fragment {
 
-
-
     Button btnOut, btnEdit;
     TextView profileNama, profileAddress;
+
 
     public ProfileFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,16 +49,18 @@ public class ProfileFragment extends Fragment {
         getActivity();
 
 
-
         profileNama = view.findViewById(R.id.namaProfile);
         profileAddress = view.findViewById(R.id.addressProfile);
         btnOut = view.findViewById(R.id.btnOut);
         btnEdit = view.findViewById(R.id.editProfile);
 
+
         Customer customer =  SharedPrefManager.getInstance(getActivity()).getCustomer();
 
         profileNama.setText(customer.getName());
         profileAddress.setText(customer.getAddress());
+
+
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -41,6 +41,13 @@ public class LoginActivity extends AppCompatActivity  implements View.OnClickLis
         // sign in (biasa)
        findViewById(R.id.btnSignIn).setOnClickListener(this);
 
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         //if user is already logged in openeing the profile activity
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();

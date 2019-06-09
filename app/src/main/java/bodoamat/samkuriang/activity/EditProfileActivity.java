@@ -1,6 +1,11 @@
 package bodoamat.samkuriang.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.Result;
@@ -24,6 +30,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     EditText editNama, editEmail, editAlamat, editNomor;
     Button btnEditSave;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +57,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-
     private void updateProfile() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating...");
@@ -68,7 +74,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         Service service = retrofit.create(Service.class);
 
-        Customer customer = new Customer(SharedPrefManager.getInstance(getApplicationContext()).getCustomer().getId(), name, email, address, phone_number);
+        Customer customer = new Customer(SharedPrefManager.getInstance(this).getCustomer().getId(), name, email, address, phone_number);
 
         Call<Result> call = service.updateProfile(
                 customer.getId(),
@@ -86,8 +92,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
-                    finish();
-//                    startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
                 }
             }
 
@@ -105,6 +109,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v == btnEditSave) {
             updateProfile();
+            finish();
         }
     }
 }
