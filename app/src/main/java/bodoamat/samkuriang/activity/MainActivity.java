@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import bodoamat.samkuriang.fragment.HistoryFragment;
 import bodoamat.samkuriang.fragment.HomeFragment;
+import bodoamat.samkuriang.fragment.HistoryFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.R;
