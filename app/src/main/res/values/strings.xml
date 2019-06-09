@@ -3,6 +3,6 @@
     <string name="google" translatable="false">Sign in with Google</string>
 
     <string name="google_sign_up" translatable="false">Sign up with Google</string>
-    <string name="title_activity_maps">Map</string>
+
 
 </resources>

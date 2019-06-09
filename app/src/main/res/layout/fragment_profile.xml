@@ -3,50 +3,195 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="bodoamat.samkuriang.Fragment.ProfileFragment">
+    tools:context="bodoamat.samkuriang.fragment.ProfileFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/bg_profile"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/image1"/>
+
+    <ImageView
+        android:id="@+id/bg_middle"
+        android:layout_width="320dp"
+        android:layout_height="165dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/bg_middle_profile" />
 
     <ImageView
         android:id="@+id/fotoProfile"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/foto_profile"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/user"
+        android:layout_marginTop="165dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/namaProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/fotoProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/raleway_medium"
         android:text="Siti Sarah Balgis"
         android:textColor="@color/hitam"
         android:textSize="16sp"
-        android:layout_toRightOf="@+id/fotoProfile"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"/>
+        android:textStyle="bold" />
+
 
     <TextView
-        android:id="@+id/emailProfile"
+        android:id="@+id/addressProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sarahbalgis98@gmail.com"
+        android:layout_below="@id/namaProfile"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/raleway_light"
+        android:text="Jalan Gatotkaca 5"
         android:textColor="@color/hitam"
         android:textSize="14sp"
-        android:layout_toRightOf="@+id/fotoProfile"
-        android:layout_below="@id/namaProfile"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"/>
+        android:drawableLeft="@drawable/ic_location_on"
+        />
 
-    <Button
-        android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_below="@id/emailProfile"
-        android:layout_toRightOf="@id/fotoProfile"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:text="Sign Out"
-        android:textColor="#ffffff"
-        android:textAllCaps="false"
-        android:background="@drawable/round_button"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/bg_middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+    <TextView
+        android:id="@+id/textAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Information"
+        android:textSize="18sp"
+        android:textColor="@color/hitam"
+        android:fontFamily="@font/raleway_bold"/>
+
+            <Button
+                android:id="@+id/editProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_middle_profile"
+                android:drawableLeft="@drawable/ic_action_user"
+                android:ellipsize="none"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="true"
+                android:shadowColor="#00FFFFFF"
+                android:text="Edit Profile"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/changePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_middle_profile"
+                android:drawableLeft="@drawable/ic_action_lock_closed"
+                android:ellipsize="none"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="true"
+                android:text="Change Password"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <TextView
+                android:id="@+id/textOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others"
+                android:textSize="18sp"
+                android:textColor="@color/hitam"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/raleway_bold"/>
+
+
+
+            <Button
+                android:id="@+id/help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_middle_profile"
+                android:drawableLeft="@drawable/ic_action_help"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="true"
+                android:text="Help"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_middle_profile"
+                android:drawableLeft="@drawable/ic_action_star"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="true"
+                android:text="Rate Samkuriang App"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/btnOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_middle_profile"
+                android:drawableLeft="@drawable/ic_action_exit"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="true"
+                android:text="Sign Out"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copyright © 2019 Samkuriang"
+                android:layout_gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="@color/hitam"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/raleway_light"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All right reserved. A product of Bodo Amat Team."
+                android:layout_gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="@color/hitam"
+                android:fontFamily="@font/raleway_light"
+                android:layout_marginBottom="70dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>
