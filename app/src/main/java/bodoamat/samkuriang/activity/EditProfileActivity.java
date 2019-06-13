@@ -91,6 +91,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(), "berhasil", Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
+                    finish();
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
                 }
             }
@@ -109,7 +110,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v == btnEditSave) {
             updateProfile();
-            finish();
+
         }
     }
 }

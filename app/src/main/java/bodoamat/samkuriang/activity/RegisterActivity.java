@@ -177,7 +177,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnSignUp:
                 userSignUp();
                 break;
@@ -189,11 +189,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private void userSignUp() {
-        Intent intent = new Intent();
-        intent.setClass(RegisterActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
 
 
     //event back disable

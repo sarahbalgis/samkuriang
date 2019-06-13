@@ -2,7 +2,7 @@ package bodoamat.samkuriang.models;
 
 public class Saving {
     private int id;
-    private String tabungan;
+    private Float tabungan;
     private String berat;
 
     public Saving(int id){
@@ -13,7 +13,7 @@ public class Saving {
         return id;
     }
 
-    public String getTabungan(){
+    public Float getTabungan(){
         return tabungan;
     }
 
