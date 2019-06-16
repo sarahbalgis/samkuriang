@@ -15,10 +15,10 @@ import bodoamat.samkuriang.fragment.HistoryFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.fragment.ProfileFragment;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.BottomNavigationViewHelper;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
+
 
     FloatingActionButton btnCamera;
 
@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
             return false;
         }
-
-
     };
 
 
@@ -80,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
 
         btnCamera = findViewById(R.id.floating_action_button);
 
@@ -90,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
