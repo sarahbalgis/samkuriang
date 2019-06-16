@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -41,6 +42,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     Marker mCurrLocationMarker;
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
+    View mapView;
 
     public MapsFragment() {
 
@@ -61,12 +63,28 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mapView = mapFragment.getView();
 
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (mapView != null &&
+                mapView.findViewById(Integer.parseInt("1")) != null) {
+            // Get the button view
+            View locationButton = ((View) mapView.findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
+            // and next place it, on bottom right (as Google Maps app)
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
+                    locationButton.getLayoutParams();
+            // position on right bottom
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+            layoutParams.setMargins(0, 0, 30, 30);
+        }
+
+
 
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -90,6 +108,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mGoogleApiClient.connect();
     }
 
+
+
     @Override
     public void onLocationChanged(Location location) {
         if (mCurrLocationMarker != null) {
@@ -98,7 +118,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(15).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(18).build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         //Place current location marker
