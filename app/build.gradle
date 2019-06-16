@@ -63,6 +63,7 @@ dependencies {
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
 
     //gmaps
+    implementation 'com.karumi:dexter:5.0.0'
 
 
 }
