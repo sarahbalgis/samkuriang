@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="bodoamat.samkuriang.fragment.ProfileFragment">
+    tools:context="bodoamat.samkuriang.fragment.ProfileFragment"
+    android:id="@+id/profileFragment">
 
     <ImageView
         android:layout_width="match_parent"

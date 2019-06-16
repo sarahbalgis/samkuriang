@@ -65,8 +65,10 @@ public class ProfileFragment extends Fragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
-                getActivity().startActivity(intent);
+                EditProfileFragment editProfileFragment = new EditProfileFragment();
+                FragmentTransaction EditProfileFragmentTransaction = getFragmentManager().beginTransaction();
+                EditProfileFragmentTransaction.replace(R.id.profileFragment, editProfileFragment);
+                EditProfileFragmentTransaction.commit();
             }
         });
 
