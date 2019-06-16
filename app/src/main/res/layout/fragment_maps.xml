@@ -28,8 +28,8 @@
         app:mt_maxSuggestionsCount="10"
         app:mt_navIconEnabled="true"
         app:mt_placeholder="Cari bank sampah"
-        android:elevation="5dp"
         android:outlineProvider="bounds"
+        android:elevation="5dp"
 
 
 

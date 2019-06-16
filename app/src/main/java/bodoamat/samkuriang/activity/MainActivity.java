@@ -64,11 +64,13 @@ public class MainActivity extends AppCompatActivity {
                                     MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
                                     MapsFragmentTransaction.commit();
 
+
                                 }
+
 
                                 @Override
                                 public void onPermissionDenied(PermissionDeniedResponse response) {
-                                    if(response.isPermanentlyDenied()){
+                                    if (response.isPermanentlyDenied()) {
                                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                         builder.setTitle("Permission Denied")
                                                 .setMessage("Permission to access device location is permanently denied. You need to go to Setting to allow the permission.")
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                     }
                                                 }).show();
-                                    }else {
+                                    } else {
                                         Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
                                     }
 
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }).check();
                     return true;
+
 
 //                case R.id.camera:
 //                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
@@ -130,13 +133,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-//            MapsFragment mapsFragment = new MapsFragment();
-//            FragmentTransaction MapsFragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
-//            MapsFragmentTransaction.commit();
-            finish();
-            return;
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
+            HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
+            HomeFragmentTransaction.commit();
         }
 
         btnCamera = findViewById(R.id.floating_action_button);
@@ -153,10 +154,6 @@ public class MainActivity extends AppCompatActivity {
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        HomeFragment homeFragment = new HomeFragment();
-        FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
-        HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
-        HomeFragmentTransaction.commit();
 
     }
 
