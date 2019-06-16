@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+//            MapsFragment mapsFragment = new MapsFragment();
+//            FragmentTransaction MapsFragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
+//            MapsFragmentTransaction.commit();
             finish();
             return;
         }
@@ -149,58 +153,10 @@ public class MainActivity extends AppCompatActivity {
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-//        bottomNavigationView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Dexter.withActivity(MainActivity.this)
-//                        .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-//                        .withListener(new PermissionListener() {
-//                            @Override
-//                            public void onPermissionGranted(PermissionGrantedResponse response) {
-//                                MapsFragment mapsFragment = new MapsFragment();
-//                                FragmentTransaction MapsFragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                                MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
-//                                MapsFragmentTransaction.commit();
-//                                finish();
-//                            }
-//
-//                            @Override
-//                            public void onPermissionDenied(PermissionDeniedResponse response) {
-//                                if(response.isPermanentlyDenied()){
-//                                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                                    builder.setTitle("Permission Denied")
-//                                            .setMessage("Permission to access device location is permanently denied. You need to go to Setting to allow the permission.")
-//                                            .setNegativeButton("Cancel", null)
-//                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                                @Override
-//                                                public void onClick(DialogInterface dialog, int which) {
-//                                                    Intent intent = new Intent();
-//                                                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-//                                                    intent.setData(Uri.fromParts("package", getPackageName(), null));
-//
-//                                                }
-//                                            }).show();
-//                                }else {
-//                                    Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
-//                                }
-//
-//                            }
-//
-//                            @Override
-//                            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-//                                token.continuePermissionRequest();
-//                            }
-//                        }).check();
-//
-//            }
-//        });
-
         HomeFragment homeFragment = new HomeFragment();
         FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
         HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
         HomeFragmentTransaction.commit();
-
-
 
     }
 
