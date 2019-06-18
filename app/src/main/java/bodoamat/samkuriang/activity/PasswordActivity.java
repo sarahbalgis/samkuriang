@@ -42,13 +42,12 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void updatePassword() {
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Updating...");
-        progressDialog.show();
+
 
         String old_password = oldPassword.getText().toString().trim();
         String password = newPassword.getText().toString().trim();
         String confirm_password = confirmPassword.getText().toString().trim();
+
 
         if (password.length() < 6) {
             newPassword.setError("Password should be atleast 6 character");
@@ -68,6 +67,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -83,12 +83,21 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
                 customer.getPassword()
         );
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Updating...");
+        progressDialog.show();
+
+
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 progressDialog.dismiss();
 //                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "update berhasil", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                if (!response.body().getError()) {
+                    finish();
+                    SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
+                }
 
             }
 

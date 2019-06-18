@@ -189,13 +189,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
-
-    //event back disable
-//    @Override
-//    public void onBackPressed(){
-//    }
-    //end - event back disable
-
-
 }
