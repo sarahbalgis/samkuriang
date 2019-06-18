@@ -93,7 +93,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
             public void onResponse(Call<Result> call, Response<Result> response) {
                 progressDialog.dismiss();
 //                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 if (!response.body().getError()) {
                     finish();
                     SharedPrefManager.getInstance(getApplicationContext()).loginCustomer(response.body().getCustomer());
