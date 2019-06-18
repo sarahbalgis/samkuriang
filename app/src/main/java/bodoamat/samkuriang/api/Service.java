@@ -45,7 +45,14 @@ public interface Service {
             @Field("email") String email,
             @Field("address") String address,
             @Field("phone_number") String phone_number
+    );
 
+    @FormUrlEncoded
+    @PUT("customers/update-password/{id}")
+    Call<Result> updatePassword(
+            @Path("id") int id,
+            @Field("old_password") String old_password,
+            @Field("password") String password
     );
 
 

@@ -3,25 +3,24 @@ package bodoamat.samkuriang.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import bodoamat.samkuriang.activity.LoginActivity;
-import bodoamat.samkuriang.activity.EditProfileActivity;
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.storage.SharedPrefManager;
+import bodoamat.samkuriang.activity.EditProfileActivity;
+import bodoamat.samkuriang.activity.LoginActivity;
+import bodoamat.samkuriang.activity.PasswordActivity;
 import bodoamat.samkuriang.models.Customer;
+import bodoamat.samkuriang.storage.SharedPrefManager;
 
 
 public class ProfileFragment extends Fragment {
 
-    Button btnOut, btnEdit;
+    Button btnOut, btnEdit, btnPassword;
     TextView profileNama, profileAddress;
 
 
@@ -39,8 +38,29 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
+
+        profileNama = rootView.findViewById(R.id.namaProfile);
+        profileAddress = rootView.findViewById(R.id.addressProfile);
+        btnOut = rootView.findViewById(R.id.btnOut);
+        btnEdit = rootView.findViewById(R.id.editProfile);
+        btnPassword = rootView.findViewById(R.id.changePassword);
+
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+
+
+        Customer customer =  SharedPrefManager.getInstance(getActivity()).getCustomer();
+
+        profileNama.setText(customer.getName());
+        profileAddress.setText(customer.getAddress());
+
+        Log.e("DEBUG", "onResume of HomeFragment");
+        super.onResume();
     }
 
     @Override
@@ -49,26 +69,19 @@ public class ProfileFragment extends Fragment {
         getActivity();
 
 
-        profileNama = view.findViewById(R.id.namaProfile);
-        profileAddress = view.findViewById(R.id.addressProfile);
-        btnOut = view.findViewById(R.id.btnOut);
-        btnEdit = view.findViewById(R.id.editProfile);
-
-
-        Customer customer =  SharedPrefManager.getInstance(getActivity()).getCustomer();
-
-        profileNama.setText(customer.getName());
-        profileAddress.setText(customer.getAddress());
-
-
-
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditProfileFragment editProfileFragment = new EditProfileFragment();
-                FragmentTransaction EditProfileFragmentTransaction = getFragmentManager().beginTransaction();
-                EditProfileFragmentTransaction.replace(R.id.profileFragment, editProfileFragment);
-                EditProfileFragmentTransaction.commit();
+               Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+               getActivity().startActivity(intent);
+            }
+        });
+
+        btnPassword.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PasswordActivity.class);
+                getActivity().startActivity(intent);
             }
         });
 
@@ -83,7 +96,11 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
+
     }
+
+
 
 
 }
