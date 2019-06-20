@@ -3,6 +3,7 @@ package bodoamat.samkuriang.activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,10 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
+
+        Toolbar toolbar = findViewById(R.id.setToolbar2);
+        toolbar.setTitle("Change Password ");
+        setSupportActionBar(toolbar);
 
         btnSavePassword = findViewById(R.id.btn_save_password);
 
@@ -86,7 +91,6 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Updating...");
         progressDialog.show();
-
 
         call.enqueue(new Callback<Result>() {
             @Override

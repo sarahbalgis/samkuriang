@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:paddingBottom="15dp"
     tools:context=".activity.LoginActivity"
-
     android:background="#f6f6f6">
 
 
     <!--Top Background-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:src="@drawable/background_atas_login"
         android:scaleType="fitXY"/>
 

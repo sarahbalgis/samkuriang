@@ -1,9 +1,9 @@
 package bodoamat.samkuriang.fragment;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +17,15 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import bodoamat.samkuriang.api.ConfigUtils;
-import bodoamat.samkuriang.api.Service;
-import bodoamat.samkuriang.models.ModelBerita;
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.adapter.BannerAdapterPager;
 import bodoamat.samkuriang.adapter.BeritaAdapterPager;
-import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.api.ConfigUtils;
+import bodoamat.samkuriang.api.Service;
+import bodoamat.samkuriang.models.Customer;
+import bodoamat.samkuriang.models.ModelBerita;
 import bodoamat.samkuriang.models.Saving;
 import bodoamat.samkuriang.storage.SharedPrefManager;
-import bodoamat.samkuriang.models.Customer;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,16 +60,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         View rootView = inflater.inflate(R.layout.activity_home, container, false);
 
+
+
         //text
         haiNama = rootView.findViewById(R.id.tv_hai_nama);
         saldoTabungan = rootView.findViewById(R.id.saldo_tabungan);
         beratSampah = rootView.findViewById(R.id.berat_sampah);
-
-        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
-
-        String[] namaPanjang = customer.getName().split(" ");
-        haiNama.setText(namaPanjang[0]);
-
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
@@ -88,15 +83,26 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             public void onResponse(Call<Saving> call, Response<Saving> response) {
                 DecimalFormat decim = new DecimalFormat("#,###.##");
                 Float tabungan = response.body().getTabungan();
-                saldoTabungan.setText(decim.format(tabungan));
+                saldoTabungan.setText(decim. format(tabungan));
                 beratSampah.setText(response.body().getBerat());
+
             }
 
             @Override
             public void onFailure(Call<Saving> call, Throwable t) {
                 Toast.makeText(getActivity(), "gagal", Toast.LENGTH_LONG).show();
             }
+
+
         });
+
+
+
+        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
+
+        String[] namaPanjang = customer.getName().split(" ");
+        haiNama.setText(namaPanjang[0]);
+
 
 
 
@@ -181,6 +187,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         createSlideShow();
         return rootView;
     }
+
 
     @Override
     public void onClick(View v) {
