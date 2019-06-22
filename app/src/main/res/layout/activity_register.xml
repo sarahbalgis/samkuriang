@@ -15,11 +15,11 @@
         android:focusableInTouchMode="true">
 
     <!--Top Background-->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:src="@drawable/background_atas_login"
-        android:scaleType="fitXY"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/background_atas_login" />
 
     <ImageView
         android:id="@+id/asset_scan"
@@ -120,7 +120,7 @@
                 android:layout_toRightOf="@+id/ic_password"
                 android:fontFamily="@font/raleway_medium"
                 android:hint="No. Handphone"
-                android:inputType="number"
+                android:inputType="phone"
                 android:textColor="@color/hitam"
                 android:textColorHint="@color/hitam"
                 android:textSize="15sp" />
