@@ -1,22 +1,21 @@
 package bodoamat.samkuriang.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.detection.DetectorActivity;
-import bodoamat.samkuriang.fragment.HomeFragment;
 import bodoamat.samkuriang.fragment.HistoryFragment;
+import bodoamat.samkuriang.fragment.HomeFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.fragment.ProfileFragment;
-import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.BottomNavigationViewHelper;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -80,9 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
         btnCamera = findViewById(R.id.floating_action_button);
 
-        btnCamera.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, bodoamat.samkuriang.detection.DetectorActivity.class);
-            startActivity(intent);
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, DetectorActivity.class);
+                startActivity(intent);
+            }
+
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
