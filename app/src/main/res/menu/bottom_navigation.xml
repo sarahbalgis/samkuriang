@@ -22,7 +22,7 @@
     <item
         android:id="@+id/history"
         android:icon="@drawable/ic_action_document"
-        android:title="Histori"
+        android:title="History"
         app:showAsAction="always|withText" />
     <item
         android:id="@+id/profile"

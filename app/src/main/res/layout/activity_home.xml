@@ -77,11 +77,30 @@
                 android:layout_height="match_parent"
                 android:padding="8dp">
 
+                <!--<ImageView-->
+                    <!--android:id="@+id/icon_warning"-->
+                    <!--android:layout_width="16dp"-->
+                    <!--android:layout_height="16dp"-->
+                    <!--android:background="@drawable/danger_red" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/status_nasabah"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_toRightOf="@id/icon_warning"-->
+                    <!--android:fontFamily="@font/raleway_medium"-->
+                    <!--android:text="Belum terdaftar jadi nasabah"-->
+                    <!--android:textColor="#EB4231"-->
+                    <!--android:textSize="12sp" />-->
+
                 <ImageView
-                    android:id="@+id/icon_warning"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@drawable/danger_red" />
+                android:id="@+id/icon_warning"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/ic_check_circle" />
+
 
                 <TextView
                     android:id="@+id/status_nasabah"
@@ -90,9 +109,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@id/icon_warning"
-                    android:fontFamily="@font/raleway_medium"
-                    android:text="Belum terdaftar jadi nasabah"
-                    android:textColor="#EB4231"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Terdaftar di Bank Sampah Sejahtera"
+                    android:textColor="#000000"
                     android:textSize="12sp" />
 
                 <LinearLayout
@@ -102,19 +121,19 @@
                     android:layout_alignParentRight="true"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/raleway_bold"
-                        android:text="daftar"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="8dp"-->
+                        <!--android:fontFamily="@font/raleway_bold"-->
+                        <!--android:text="daftar"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="12sp" />-->
 
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:background="@drawable/ic_keyboard_arrow_right" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="18dp"-->
+                        <!--android:layout_height="18dp"-->
+                        <!--android:background="@drawable/ic_keyboard_arrow_right" />-->
 
                 </LinearLayout>
 
