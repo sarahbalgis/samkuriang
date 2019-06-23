@@ -25,9 +25,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.PasswordActivity"/>
-        <activity android:name=".detection.DetectorActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/activity_name_detection"/>
         <activity android:name=".activity.EditProfileActivity"/>
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.RegisterActivity" />

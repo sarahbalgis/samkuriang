@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.detection.DetectorActivity;
 import bodoamat.samkuriang.fragment.HistoryFragment;
 import bodoamat.samkuriang.fragment.HomeFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
@@ -82,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(MainActivity.this, DetectorActivity.class);
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intent);
             }
 

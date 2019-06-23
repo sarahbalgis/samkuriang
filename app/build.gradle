@@ -1,6 +1,5 @@
 //noinspection GradleCompatible
 apply plugin: 'com.android.application'
-apply plugin: 'de.undercouch.download'
 
 android {
     compileSdkVersion 28
@@ -18,20 +17,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    aaptOptions {
-        noCompress "tflite"
-    }
-    compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
-    }
+
 }
-// import DownloadModels task
-project.ext.ASSET_DIR = projectDir.toString() + '/src/main/assets'
-project.ext.TMP_DIR   = project.buildDir.toString() + '/downloads'
-
-apply from:'download_model.gradle'
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     //noinspection GradleCompatible
