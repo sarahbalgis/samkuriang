@@ -10,7 +10,7 @@
         android:id="@+id/setToolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/gradient"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:titleTextColor="#fff"/>
 
@@ -20,8 +20,8 @@
         android:layout_height="match_parent"
         android:layout_below="@id/setToolbar"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical"
         tools:context=".activity.EditProfileActivity">
 
@@ -42,140 +42,110 @@
             android:fontFamily="@font/raleway_medium"
             android:text="Ubah Foto Profile"
             android:textColor="@color/hitam"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:layout_marginTop="40dp"
+            android:text="Nama:"
+            android:textColor="@color/hitam"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/name1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/raleway_medium"
+            android:hint="Nama"
+            android:inputType="text"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:text="Nama:"
-                android:textColor="@color/hitam"
-                android:textSize="16sp" />
-
-
-            <EditText
-                android:id="@+id/name1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:hint="Nama"
-                android:textColor="@color/hitam"
-                android:textColorHint="@color/hitam"
-                android:textSize="16sp"
-                android:inputType="text"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:layout_marginTop="15dp"
+            android:text="E-mail:"
+            android:textColor="@color/hitam"
+            android:textSize="16sp" />
 
 
-        </LinearLayout>
-
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/email1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/raleway_medium"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:text="E-mail:"
-                android:textColor="@color/hitam"
-                android:textSize="16sp" />
-
-
-            <EditText
-                android:id="@+id/email1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/hitam"
-                android:textColorHint="@color/hitam"
-                android:textSize="16sp" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:layout_marginTop="15dp"
+            android:text="Alamat:"
+            android:textColor="@color/hitam"
+            android:textSize="16sp" />
 
 
-        </LinearLayout>
-
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/address1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:fontFamily="@font/raleway_medium"
+            android:hint="Alamat"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="16sp"
+            android:inputType="textPostalAddress"/>
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:text="Alamat:"
-                android:textColor="@color/hitam"
-                android:textSize="16sp" />
-
-
-            <EditText
-                android:id="@+id/address1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:hint="Alamat"
-                android:textColor="@color/hitam"
-                android:textColorHint="@color/hitam"
-                android:textSize="16sp"
-                android:inputType="textPostalAddress"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:layout_marginTop="15dp"
+            android:text="No. HP:"
+            android:textColor="@color/hitam"
+            android:textSize="16sp" />
 
 
-        </LinearLayout>
-
-
-        <LinearLayout
+        <EditText
+            android:id="@+id/phone1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:text="No. HP:"
-                android:textColor="@color/hitam"
-                android:textSize="16sp" />
+            android:fontFamily="@font/raleway_medium"
+            android:hint="No. Handphone"
+            android:inputType="phone"
+            android:textColor="@color/hitam"
+            android:textColorHint="@color/hitam"
+            android:textSize="16sp" />
 
 
-            <EditText
-                android:id="@+id/phone1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_medium"
-                android:hint="No. Handphone"
-                android:inputType="phone"
-                android:textColor="@color/hitam"
-                android:textColorHint="@color/hitam"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
-
-
-
-        <Button
-            android:layout_marginTop="20dp"
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:textAllCaps="false"
-            android:background="@drawable/round_button"
-            android:textColor="#fff"
-            android:fontFamily="@font/raleway_bold"/>
 
     </LinearLayout>
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="25dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:background="@drawable/round_button"
+        android:textColor="#fff"
+        android:fontFamily="@font/raleway_bold"/>
 
 </RelativeLayout>

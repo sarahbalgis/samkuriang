@@ -31,8 +31,8 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
 
-        Toolbar toolbar = findViewById(R.id.setToolbar2);
-        toolbar.setTitle("Change Password ");
+        Toolbar toolbar = findViewById(R.id.setToolbar);
+        toolbar.setTitle("Ubah Password");
         setSupportActionBar(toolbar);
 
         btnSavePassword = findViewById(R.id.btn_save_password);

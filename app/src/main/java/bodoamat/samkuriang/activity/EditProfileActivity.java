@@ -34,7 +34,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_edit_profile);
 
         toolbar = findViewById(R.id.setToolbar);
-        toolbar.setTitle("Edit Profile ");
+        toolbar.setTitle("Ubah Profil ");
         setSupportActionBar(toolbar);
 
         btnEditSave = findViewById(R.id.btnSave);
