@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import bodoamat.samkuriang.detection.DetectorActivity;
 import bodoamat.samkuriang.fragment.HomeFragment;
 import bodoamat.samkuriang.fragment.HistoryFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
@@ -44,11 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
 
-//                case R.id.camera:
-//                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-//                    startActivity(intent);
-//
-//                    return true;
+
 
                 case R.id.history:
                     HistoryFragment historyFragment = new HistoryFragment();
@@ -83,12 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnCamera = findViewById(R.id.floating_action_button);
 
-        btnCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivity(intent);
-            }
+        btnCamera.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, bodoamat.samkuriang.detection.DetectorActivity.class);
+            startActivity(intent);
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

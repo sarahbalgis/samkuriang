@@ -13,10 +13,6 @@ import bodoamat.samkuriang.R;
 
 public class MapsFragment extends Fragment {
 
-    public MapsFragment() {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -24,8 +20,9 @@ public class MapsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_maps, container, false);
     }
 
-
-
+    @Override
+    public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity();
+    }
 }
-
-
