@@ -15,204 +15,216 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/gradient" />
 
-       <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-           <!--halo gita-->
-            <LinearLayout
+        <!--halo gita-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp">
+                android:fontFamily="@font/raleway_extrabold"
+                android:text="Halo, "
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Halo, "
-                    android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/raleway_extrabold"
-                    />
+            <TextView
+                android:id="@+id/tv_hai_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_extrabold"
+                android:text="Gita"
+                android:textColor="#ffffff"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/tv_hai_nama"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gita"
-                    android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/raleway_extrabold"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="!"
-                    android:textColor="#ffffff"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    />
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="!"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sudahkah kamu menabung sampah?"
             android:fontFamily="@font/raleway_medium"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
             android:paddingLeft="16dp"
-            />
+            android:text="Sudahkah kamu menabung sampah?"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
-           <!--cardview banner-->
-           <android.support.v7.widget.CardView
-               android:layout_width="match_parent"
-               android:layout_height="120dp"
-               android:layout_marginTop="16dp"
-               android:layout_marginLeft="16dp"
-               android:layout_marginRight="16dp">
+        <!--cardview banner-->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp">
 
-                <RelativeLayout
-                    android:id="@+id/layout_tabungan"
+            <RelativeLayout
+                android:id="@+id/layout_tabungan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/icon_warning"-->
+                    <!--android:layout_width="16dp"-->
+                    <!--android:layout_height="16dp"-->
+                    <!--android:background="@drawable/danger_red" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/status_nasabah"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_toRightOf="@id/icon_warning"-->
+                    <!--android:fontFamily="@font/raleway_medium"-->
+                    <!--android:text="Belum terdaftar jadi nasabah"-->
+                    <!--android:textColor="#EB4231"-->
+                    <!--android:textSize="12sp" />-->
+
+                <ImageView
+                android:id="@+id/icon_warning"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/ic_check_circle" />
+
+
+                <TextView
+                    android:id="@+id/status_nasabah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/icon_warning"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Terdaftar di Bank Sampah Sejahtera"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/btn_daftar_nasabah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="8dp"-->
+                        <!--android:fontFamily="@font/raleway_bold"-->
+                        <!--android:text="daftar"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="12sp" />-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="18dp"-->
+                        <!--android:layout_height="18dp"-->
+                        <!--android:background="@drawable/ic_keyboard_arrow_right" />-->
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/horizontal_line"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp">
+                    android:layout_height="2dp"
+                    android:layout_below="@id/status_nasabah"
+                    android:layout_marginTop="8dp"
+                    android:background="#F5F5F5" />
 
-                    <ImageView
-                        android:id="@+id/icon_warning"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:background="@drawable/danger_red" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/horizontal_line"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/status_nasabah"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="8dp"
-                        android:layout_toRightOf="@id/icon_warning"
                         android:fontFamily="@font/raleway_medium"
-                        android:text="Belum terdaftar jadi nasabah"
-                        android:textColor="#EB4231"
-                        android:textSize="12sp" />
+                        android:text="Rp"
+                        android:textSize="10sp" />
 
-                    <LinearLayout
-                        android:id="@+id/btn_daftar_nasabah"
+                    <TextView
+                        android:id="@+id/saldo_tabungan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_alignParentRight="true">
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="0"
+                        android:textColor="@color/hijau_muda"
+                        android:textSize="20sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="daftar"
-                            android:fontFamily="@font/raleway_bold"
-                            android:textColor="#000000"
-                            android:layout_marginRight="8dp"
-                            android:textSize="12sp"
-                            />
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:background="@drawable/ic_keyboard_arrow_right"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:id="@+id/horizontal_line"
-                        android:layout_below="@id/status_nasabah"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#F5F5F5"
-                        android:layout_marginTop="8dp"/>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/horizontal_line"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="12dp"
-                        android:orientation="vertical"
-                        >
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Saldo Tabungan"
+                        android:textColor="@color/hijau_muda" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_medium"
-                            android:text="Rp"
-                            android:textSize="10sp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/horizontal_line"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/vertical_line"
+                    android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/saldo_tabungan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:fontFamily="@font/raleway_bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/hijau_muda"
-                            android:layout_marginLeft="16dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Saldo Tabungan"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/raleway_bold"
-                            android:textColor="@color/hijau_muda"/>
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/horizontal_line"
-                        android:layout_toRightOf="@id/vertical_line"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical"
-                        >
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="kg"
+                        android:textSize="10sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="kg"
-                            android:textSize="10sp"
-                            android:fontFamily="@font/raleway_medium"/>
+                    <TextView
+                        android:id="@+id/berat_sampah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="0"
+                        android:textColor="@color/hijau_muda"
+                        android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/berat_sampah"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:fontFamily="@font/raleway_bold"
-                            android:textColor="@color/hijau_muda"
-                            android:textSize="20sp"
-                            android:layout_marginLeft="16dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Berat Sampah"
-                            android:layout_marginTop="5dp"
-                            android:textColor="@color/hijau_muda"
-                            android:fontFamily="@font/raleway_bold"/>
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/raleway_bold"
+                        android:text="Berat Sampah"
+                        android:textColor="@color/hijau_muda" />
+                </LinearLayout>
 
 
-                    <View
-                        android:id="@+id/vertical_line"
-                        android:layout_below="@id/horizontal_line"
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:background="#F5F5F5"
-                        android:layout_centerHorizontal="true"/>
+                <View
+                    android:id="@+id/vertical_line"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/horizontal_line"
+                    android:layout_centerHorizontal="true"
+                    android:background="#F5F5F5" />
 
-                </RelativeLayout>
-           </android.support.v7.widget.CardView>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -233,9 +245,9 @@
                         android:id="@+id/viewPagerBanner"
                         android:layout_width="match_parent"
                         android:layout_height="140dp"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="12dp"
-                        android:layout_marginRight="12dp"/>
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="12dp" />
 
                     <!--bulet bulet banner-->
                     <LinearLayout
@@ -280,23 +292,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/abu_muda">
+                        android:background="@color/abu_muda"
+                        android:orientation="vertical">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
                             android:paddingLeft="16dp"
-                            android:paddingRight="16dp"
-                            android:layout_marginTop="16dp">
+                            android:paddingRight="16dp">
+
                             <TextView
                                 android:id="@+id/tv_berita"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/raleway_bold"
                                 android:text="Berita"
-                                android:textSize="18sp"
                                 android:textColor="#010101"
-                                android:fontFamily="@font/raleway_bold"/>
+                                android:textSize="18sp" />
 
                             <ImageView
                                 android:id="@+id/see_all_berita"
@@ -324,7 +337,6 @@
                         </LinearLayout>
 
                     </LinearLayout>
-
 
 
                 </LinearLayout>

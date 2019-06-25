@@ -4,13 +4,14 @@ public class Customer {
     private int id;
     private String name;
     private String email;
+    private  String old_password;
     private String password;
     private String address;
     private String phone_number;
     private String tabungan;
     private String berat;
 
-    public Customer(int id, String tabungan, String berat) {
+    public Customer(int id, String tabungan) {
         this.id = id;
         this.tabungan = tabungan;
         this.berat = berat;
@@ -41,6 +42,11 @@ public class Customer {
         this.phone_number = phone_number;
     }
 
+    public Customer(int id, String old_password, String password){
+        this.id = id;
+        this.old_password = old_password;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -53,6 +59,8 @@ public class Customer {
     public String getEmail() {
         return email;
     }
+
+    public String getOld_password() { return old_password; }
 
     public String getPassword() {
         return password;

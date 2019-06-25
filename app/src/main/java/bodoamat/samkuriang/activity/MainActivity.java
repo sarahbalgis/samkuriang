@@ -14,7 +14,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -26,12 +25,11 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-import bodoamat.samkuriang.fragment.HomeFragment;
+import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.fragment.HistoryFragment;
+import bodoamat.samkuriang.fragment.HomeFragment;
 import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.fragment.ProfileFragment;
-import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.helper.BottomNavigationViewHelper;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -95,11 +93,7 @@ public class MainActivity extends AppCompatActivity {
                             }).check();
                     return true;
 
-//                case R.id.camera:
-//                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-//                    startActivity(intent);
-//
-//                    return true;
+
 
                 case R.id.history:
                     HistoryFragment historyFragment = new HistoryFragment();
@@ -148,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intent);
             }
+
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
