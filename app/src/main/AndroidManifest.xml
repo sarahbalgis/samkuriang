@@ -25,20 +25,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailObjectActivity"></activity>
-        <!-- <activity android:name=".activity.spashscreen"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
+        <!--<activity android:name=".DetailObjectActivity"></activity>-->
         <activity android:name=".activity.EditProfileActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.PasswordActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".DetailObjectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
