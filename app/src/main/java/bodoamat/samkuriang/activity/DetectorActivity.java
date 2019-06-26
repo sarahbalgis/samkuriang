@@ -35,10 +35,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-
 
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.customview.OverlayView;
@@ -90,6 +90,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private BorderedText borderedText;
 
+//  TextView textLabel = (TextView)findViewById(R.id.textLabel);
   protected TextView textLabel;
   protected Button takePicture;
 
