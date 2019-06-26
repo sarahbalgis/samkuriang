@@ -255,7 +255,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   }
 
   private void imageProcessing(){
-    Intent intent = new Intent();
+    Intent intent = new Intent(this, DetailObjectActivity.class);
     startActivity(intent);
   }
 
