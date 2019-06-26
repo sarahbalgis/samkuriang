@@ -47,13 +47,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.nio.ByteBuffer;
 
-import bodoamat.samkuriang.fragment.CameraConnectionFragment;
-import bodoamat.samkuriang.fragment.LegacyCameraConnectionFragment;
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.env.ImageUtils;
 import bodoamat.samkuriang.env.Logger;
+import bodoamat.samkuriang.fragment.CameraConnectionFragment;
+import bodoamat.samkuriang.fragment.LegacyCameraConnectionFragment;
 
 public abstract class CameraActivity extends AppCompatActivity
     implements OnImageAvailableListener,
@@ -98,6 +99,7 @@ public abstract class CameraActivity extends AppCompatActivity
       Toolbar toolbar = findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
       getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
       if (hasPermission()) {
         setFragment();
