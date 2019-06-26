@@ -16,6 +16,7 @@
 
 package bodoamat.samkuriang.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -26,9 +27,13 @@ import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -49,7 +54,7 @@ import bodoamat.samkuriang.tracking.MultiBoxTracker;
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
  * objects.
  */
-public class DetectorActivity extends CameraActivity implements OnImageAvailableListener {
+public class DetectorActivity extends CameraActivity implements OnImageAvailableListener, View.OnClickListener {
   private static final Logger LOGGER = new Logger();
 
   // Configuration values for the prepackaged SSD model.
@@ -86,7 +91,18 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private BorderedText borderedText;
 
 //  TextView textLabel = (TextView)findViewById(R.id.textLabel);
+  protected TextView textLabel;
+  protected Button takePicture;
 
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // find id on layout
+    takePicture.findViewById(R.id.takePicture);
+
+    takePicture.setOnClickListener(this);
+  }
 
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
@@ -186,7 +202,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             final long startTime = SystemClock.uptimeMillis();
             final List<Classifier.Recognition> results = detector.recognizeImage(croppedBitmap);
             lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-
             cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
             final Canvas canvas = new Canvas(cropCopyBitmap);
             final Paint paint = new Paint();
@@ -210,7 +225,11 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                 if (!result.getTitle().equals("???")) {
                   canvas.drawRect(location, paint);
+                  if(result.getTitle().equals(null)){
 
+                  } else {
+                    showLabelObjectDetection(result.getTitle());
+                  }
                   cropToFrameTransform.mapRect(location);
                   result.setLocation(location);
                   mappedRecognitions.add(result);
@@ -234,6 +253,24 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                 });
           }
         });
+  }
+
+  private void imageProcessing(){
+    Intent intent = new Intent();
+    startActivity(intent);
+  }
+
+  @Override
+  public void onClick(View v) {
+    if (v == takePicture) {
+      imageProcessing();
+    }
+  }
+
+  protected void showLabelObjectDetection(String labelInfo) {
+    textLabel = findViewById(R.id.textLabel);
+
+    textLabel.setText(labelInfo);
   }
 
   @Override
