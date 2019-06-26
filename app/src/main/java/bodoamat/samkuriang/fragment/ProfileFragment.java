@@ -21,7 +21,7 @@ import bodoamat.samkuriang.storage.SharedPrefManager;
 public class ProfileFragment extends Fragment {
 
     Button btnOut, btnEdit, btnPassword;
-    TextView profileNama, profileAddress;
+    TextView profileNama, profileAddress, textProfileImage;
 
 
     public ProfileFragment() {
@@ -46,6 +46,7 @@ public class ProfileFragment extends Fragment {
         btnOut = rootView.findViewById(R.id.btnOut);
         btnEdit = rootView.findViewById(R.id.editProfile);
         btnPassword = rootView.findViewById(R.id.changePassword);
+        textProfileImage = rootView.findViewById(R.id.textProfile);
 
         return rootView;
     }
@@ -58,6 +59,8 @@ public class ProfileFragment extends Fragment {
 
         profileNama.setText(customer.getName());
         profileAddress.setText(customer.getAddress());
+        String[] namaPanjang = customer.getName().split("!>=1");
+        textProfileImage.setText(namaPanjang[0]);
 
         Log.e("DEBUG", "onResume of HomeFragment");
         super.onResume();

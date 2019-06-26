@@ -25,14 +25,26 @@
         android:layout_marginTop="150dp"
         android:src="@drawable/bg_middle_profile" />
 
-    <ImageView
+
+    <View
         android:id="@+id/fotoProfile"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/user"
         android:layout_marginTop="165dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/raleway_bold"/>
+        android:background="#FFA962"
+        />
+
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:textSize="45sp"
+        android:textColor="#FFEFC0"
+        android:fontFamily="@font/raleway_bold"
+        android:layout_marginTop="172dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/namaProfile"

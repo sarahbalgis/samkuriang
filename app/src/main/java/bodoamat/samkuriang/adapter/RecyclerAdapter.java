@@ -14,7 +14,7 @@ public class RecyclerAdapter extends  RecyclerView.Adapter<RecyclerViewHolder> {
 
     //deklarasi variable context
 
-    private final Context context;
+    private final HistoryFragment context;
 
     String [] name={"Apple","Facebook","Twitter","Google",
             "Microsoft","Wikipedia","Yahoo","Youtube"};
@@ -23,7 +23,7 @@ public class RecyclerAdapter extends  RecyclerView.Adapter<RecyclerViewHolder> {
     LayoutInflater inflater;
     public RecyclerAdapter(HistoryFragment context) {
         this.context=context;
-        inflater=LayoutInflater.from(context);
+        inflater= (LayoutInflater) LayoutInflater.from(context);
     }
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
