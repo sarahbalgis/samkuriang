@@ -1,10 +1,23 @@
 <resources>
-    <string name="app_name" translatable="false">Samkuriang</string>
+    <string name="app_name" translatable="false">SAMKURIANG</string>
     <string name="google" translatable="false">Sign in with Google</string>
-	<string name="description_info">Info</string>
     <string name="google_sign_up" translatable="false">Sign up with Google</string>
-	<string name="request_permission">This sample needs camera permission.</string>
-    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Scan Sampah</string>
+    <string name="slide_1_desc">Anda dapat memilah jenis dan bentuk sampah dengan mudah dengan bantuan object detection pada aplikasi SAMKURIANG</string>
+
+    <string name="slide_2_title">Search Bank Sampah</string>
+    <string name="slide_2_desc">Anda dapat memilah jenis dan bentuk sampah dengan mudah dengan bantuan object detection pada aplikasi SAMKURIANG</string>
+
+    <string name="slide_3_title">Navigasi ke Bank Sampah</string>
+    <string name="slide_3_desc">Anda dapat memilah jenis dan bentuk sampah dengan mudah dengan bantuan object detection pada aplikasi SAMKURIANG</string>
+
+    <string name="slide_4_title">Tabungan Sampah</string>
+    <string name="slide_4_desc">Anda dapat memilah jenis dan bentuk sampah dengan mudah dengan bantuan object detection pada aplikasi SAMKURIANG</string>
 
 
 </resources>

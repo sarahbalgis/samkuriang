@@ -1,14 +1,29 @@
 package bodoamat.samkuriang.activity;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.PermissionChecker;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.fragment.HistoryFragment;
@@ -36,11 +51,46 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.maps:
-                    MapsFragment mapsFragment = new MapsFragment();
-                    FragmentTransaction MapsFragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
-                    MapsFragmentTransaction.commit();
+                    Dexter.withActivity(MainActivity.this)
+                            .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                            .withListener(new PermissionListener() {
+                                @Override
+                                public void onPermissionGranted(PermissionGrantedResponse response) {
 
+                                    MapsFragment mapsFragment = new MapsFragment();
+                                    FragmentTransaction MapsFragmentTransaction = getSupportFragmentManager().beginTransaction();
+                                    MapsFragmentTransaction.replace(R.id.fragment_container, mapsFragment);
+                                    MapsFragmentTransaction.commit();
+
+                                }
+
+                                @Override
+                                public void onPermissionDenied(PermissionDeniedResponse response) {
+                                    if(response.isPermanentlyDenied()){
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                        builder.setTitle("Permission Denied")
+                                                .setMessage("Permission to access device location is permanently denied. You need to go to Setting to allow the permission.")
+                                                .setNegativeButton("Cancel", null)
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        Intent intent = new Intent();
+                                                        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                                        intent.setData(Uri.fromParts("package", getPackageName(), null));
+
+                                                    }
+                                                }).show();
+                                    }else {
+                                        Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).check();
                     return true;
 
 
@@ -62,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
             }
-
-
             return false;
         }
 
@@ -75,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
+            HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
+            HomeFragmentTransaction.commit();
+
+//            return;
+        }
 
         btnCamera = findViewById(R.id.floating_action_button);
 
@@ -91,10 +149,11 @@ public class MainActivity extends AppCompatActivity {
 //        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        HomeFragment homeFragment = new HomeFragment();
-        FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
-        HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
-        HomeFragmentTransaction.commit();
+//        HomeFragment homeFragment = new HomeFragment();
+//        FragmentTransaction HomeFragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        HomeFragmentTransaction.replace(R.id.fragment_container, homeFragment);
+//        HomeFragmentTransaction.commit();
+
 
     }
 
