@@ -29,6 +29,7 @@ import android.media.ImageReader.OnImageAvailableListener;
 import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -85,7 +86,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private BorderedText borderedText;
 
-  private static final int REQUEST_IMAGE_CAPTURE = 1;
+  TextView textLabel = (TextView)findViewById(R.id.textLabel);
+
 
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {

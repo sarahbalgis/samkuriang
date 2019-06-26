@@ -27,7 +27,6 @@
         android:background="@android:color/black"
         android:orientation="vertical">
 
-
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/container"
@@ -45,7 +44,30 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/tfl_logo" />
+                android:src="@drawable/logo_samkuriang" />
         </android.support.v7.widget.Toolbar>
+
+        <Button
+            android:id="@+id/takePicture"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            />
+
+        <TextView
+            android:id="@+id/textLabel"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/takePicture"
+            android:textColor="@color/gmm_white"
+            android:textAlignment="center"
+            android:text="Test"
+            />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>
