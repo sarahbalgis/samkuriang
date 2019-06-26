@@ -62,7 +62,6 @@ dependencies {
     // gmaps
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
-    implementation 'com.google.android.libraries.places:places:1.1.0'
 
     // search bar
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
@@ -73,7 +72,7 @@ dependencies {
 
     //Times Formater
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-    
+
 
 }
 

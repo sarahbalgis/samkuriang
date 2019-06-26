@@ -43,7 +43,7 @@
         android:textSize="45sp"
         android:textColor="#FFEFC0"
         android:fontFamily="@font/raleway_bold"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="176dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView

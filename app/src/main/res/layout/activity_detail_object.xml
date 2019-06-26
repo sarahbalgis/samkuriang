@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailObjectActivity">
+
+
+    <ImageView
+        android:id="@+id/image_object"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/botol_plastik"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_object"
+        android:alpha="0.9"
+        />
+
+    <TextView
+        android:id="@+id/sampah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/raleway_extrabold"
+        android:text="Sampah"
+        android:textColor="#fff"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/nama_sampah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sampah"
+        android:text="Botol Plastik"
+        android:textColor="#fff"
+        android:fontFamily="@font/raleway_extrabold"
+        android:textSize="40sp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/informasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/nama_sampah"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/harga_sampah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 3.500"
+            android:textColor="#fff"
+            android:fontFamily="@font/raleway_medium"
+            android:textSize="20sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="#fff"/>
+
+        <TextView
+            android:id="@+id/jenis_sampah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Sampah Anorganik"
+            android:textColor="#fff"
+            android:fontFamily="@font/raleway_medium"
+            android:textSize="20sp"/>
+
+
+</LinearLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/informasi"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_detail_object"
+        android:text="LIHAT DETAIL"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:fontFamily="@font/raleway_bold"/>
+
+
+</RelativeLayout>

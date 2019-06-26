@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import bodoamat.samkuriang.R;
@@ -25,6 +26,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
     Toolbar toolbar;
     EditText editNama, editEmail, editAlamat, editNomor;
+    TextView textProfileImage;
     Button btnEditSave;
 
 
@@ -43,6 +45,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         editEmail = findViewById(R.id.email1);
         editAlamat = findViewById(R.id.address1);
         editNomor = findViewById(R.id.phone1);
+        textProfileImage = findViewById(R.id.textProfile);
 
 
         btnEditSave.setOnClickListener(this);
@@ -53,6 +56,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         editEmail.setText(customer.getEmail());
         editAlamat.setText(customer.getAddress());
         editNomor.setText(customer.getPhone_number());
+        String namaPanjang = customer.getName();
+        namaPanjang = namaPanjang.substring(0,1);
+        textProfileImage.setText(namaPanjang);
 
     }
 
