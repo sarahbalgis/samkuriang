@@ -12,5 +12,7 @@
     <color name="hitam">#3a3a3a</color>
     <color name="abu_muda">#fffefe</color>
 
+    <color name="semi_transparent">#66000000</color>
+
 
 </resources>
