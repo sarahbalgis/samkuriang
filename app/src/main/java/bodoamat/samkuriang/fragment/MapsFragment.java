@@ -2,6 +2,8 @@ package bodoamat.samkuriang.fragment;
 
 
 import android.Manifest;
+import android.animation.ArgbEvaluator;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -10,9 +12,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -28,9 +32,16 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.activity.DetailBankSampahActivity;
+import bodoamat.samkuriang.activity.EditProfileActivity;
+import bodoamat.samkuriang.adapter.BankSampahAdapter;
+import bodoamat.samkuriang.adapter.BeritaAdapterPager;
+import bodoamat.samkuriang.models.BankSampah;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -44,6 +55,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     LocationRequest mLocationRequest;
     View mapView;
 
+    // view pager
+    ViewPager viewPagerBankSampah;
+    BankSampahAdapter bankSampahAdapter;
+    List<BankSampah> bankSampahs;
+    // untuk ganti warna background
+    Integer[] colors = null;
+    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
+
     public MapsFragment() {
 
     }
@@ -53,7 +72,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maps, container, false);
+//        return inflater.inflate(R.layout.fragment_maps, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_maps, container, false);
+
+
+        return rootView;
     }
 
     @Override
@@ -64,6 +87,56 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mapView = mapFragment.getView();
+
+        // view pager
+        bankSampahs = new ArrayList<>();
+        bankSampahs.add(new BankSampah("Bank Sampah Sejahtera", "Jalan Bambon Raya Beji Timur"));
+        bankSampahs.add(new BankSampah("Bank Sampah Kukusan", "Jalan Palakali Raya No. 71"));
+        bankSampahs.add(new BankSampah("Bank Sampah Tanah Baru", "Jalan Tugu Tanah Baru No. 001"));
+        bankSampahs.add(new BankSampah("Bank Sampah Krukut", "Jalan Krukut Raya"));
+
+        bankSampahAdapter = new BankSampahAdapter(bankSampahs, this);
+
+        viewPagerBankSampah = view.findViewById(R.id.viewPagerBankSampah);
+        viewPagerBankSampah.setAdapter(bankSampahAdapter);
+        viewPagerBankSampah.setPadding(16,0,16,0);
+
+
+        viewPagerBankSampah.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                if (position < (bankSampahAdapter.getCount() -1) && position < (colors.length -1 )){
+//                    viewPagerBankSampah.setBackgroundColor(
+//                            (Integer) argbEvaluator.evaluate(
+//                                    positionOffset,
+//                                    colors[position],
+//                                    colors[position+1]
+//                            )
+//                    );
+//                }
+//
+//                else {
+//                    viewPagerBankSampah.setBackgroundColor(colors[colors.length-1]);
+//                }
+
+//                viewPagerBankSampah.setOnClickListener();
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+//                Intent intentBankSampah = new Intent(getActivity(), DetailBankSampahActivity.class);
+//                getActivity().startActivity(intentBankSampah);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+
+
 
     }
 
@@ -123,14 +196,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         //Place current location marker
 //        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(latLng);
-//        markerOptions.title("My Position");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//        mCurrLocationMarker = mMap.addMarker(markerOptions);
-
-        //move map camera
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+////        markerOptions.position(latLng);
+////        markerOptions.title("My Position");
+////        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+////        mCurrLocationMarker = mMap.addMarker(markerOptions);
+//
+//        //move map camera
+////        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+////        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
         //stop location updates
         if (mGoogleApiClient != null) {
