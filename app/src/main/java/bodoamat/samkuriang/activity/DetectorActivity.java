@@ -90,7 +90,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private BorderedText borderedText;
 
-//  TextView textLabel = (TextView)findViewById(R.id.textLabel);
   protected TextView textLabel;
   protected Button takePicture;
 
