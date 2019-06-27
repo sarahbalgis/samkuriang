@@ -42,53 +42,76 @@
         android:textColor="#fff"
         android:fontFamily="@font/raleway_extrabold"
         android:textSize="40sp"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp"/>
 
-    <LinearLayout
-        android:id="@+id/informasi"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/harga"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="Harga (kg)"
+        android:textColor="#fff"
+        android:layout_toLeftOf="@id/line"
         android:layout_below="@id/nama_sampah"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:paddingLeft="13dp"
-        android:paddingRight="13dp"
-        android:gravity="center_horizontal">
+        android:fontFamily="@font/raleway_medium"
+        android:textSize="18sp"/>
 
-        <TextView
+
+    <TextView
             android:id="@+id/harga_sampah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rp 3.500"
             android:textColor="#fff"
+            android:layout_toLeftOf="@id/line"
+            android:layout_below="@id/harga"
             android:fontFamily="@font/raleway_medium"
             android:textSize="18sp"/>
 
         <View
+            android:id="@+id/line"
             android:layout_marginLeft="15dp"
+            android:layout_below="@id/nama_sampah"
+            android:layout_centerHorizontal="true"
             android:layout_width="2dp"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="#fff"/>
 
-        <TextView
-            android:id="@+id/jenis_sampah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="Sampah Anorganik"
-            android:textColor="#fff"
-            android:fontFamily="@font/raleway_medium"
-            android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/text_sampah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nama_sampah"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/line"
+        android:elegantTextHeight="false"
+        android:ellipsize="none"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Sampah"
+        android:textAlignment="inherit"
+        android:textColor="#fff"
+        android:textSize="18sp" />
 
-
-</LinearLayout>
+    <TextView
+        android:id="@+id/jenis_sampah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_sampah"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/line"
+        android:elegantTextHeight="false"
+        android:ellipsize="none"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Anorganik"
+        android:textAlignment="inherit"
+        android:textColor="#fff"
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/informasi"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/line"
+        android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_detail_object"
         android:text="LIHAT DETAIL"
