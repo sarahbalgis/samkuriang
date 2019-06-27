@@ -1,5 +1,6 @@
 package bodoamat.samkuriang.api;
 
+import bodoamat.samkuriang.models.Garbage;
 import bodoamat.samkuriang.models.Result;
 
 import bodoamat.samkuriang.models.Saving;
@@ -33,9 +34,13 @@ public interface Service {
 
     @GET("customers/tabungan/{id}")
     Call<Saving> getTabungan(
-        @Path("id") int id
+            @Path("id") int id
     );
 
+    @GET("garbage/detail/{name}")
+    Call<Garbage> getGarbageDetail(
+            @Path("name") String name
+    );
 
     @FormUrlEncoded
     @PUT("customers/update-profile/{id}")
@@ -45,9 +50,5 @@ public interface Service {
             @Field("email") String email,
             @Field("address") String address,
             @Field("phone_number") String phone_number
-
     );
-
-
-
 }

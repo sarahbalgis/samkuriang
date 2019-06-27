@@ -91,7 +91,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private BorderedText borderedText;
 
   protected TextView textLabel;
-  protected Button takePicture;
+  Button takePicture;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

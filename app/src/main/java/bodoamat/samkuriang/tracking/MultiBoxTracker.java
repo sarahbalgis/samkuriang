@@ -40,21 +40,21 @@ public class MultiBoxTracker {
   private static final float TEXT_SIZE_DIP = 18;
   private static final float MIN_SIZE = 16.0f;
   private static final int[] COLORS = {
-    Color.BLUE,
-    Color.RED,
-    Color.GREEN,
-    Color.YELLOW,
-    Color.CYAN,
-    Color.MAGENTA,
-    Color.WHITE,
-    Color.parseColor("#55FF55"),
-    Color.parseColor("#FFA500"),
-    Color.parseColor("#FF8888"),
-    Color.parseColor("#AAAAFF"),
-    Color.parseColor("#FFFFAA"),
-    Color.parseColor("#55AAAA"),
-    Color.parseColor("#AA33AA"),
-    Color.parseColor("#0D0068")
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d"),
+          Color.parseColor("#085a3d")
   };
 
   final List<Pair<Float, RectF>> screenRects = new LinkedList<Pair<Float, RectF>>();
@@ -76,10 +76,10 @@ public class MultiBoxTracker {
 
     boxPaint.setColor(Color.RED);
     boxPaint.setStyle(Style.STROKE);
-    boxPaint.setStrokeWidth(10.0f);
+    boxPaint.setStrokeWidth(20.0f);
     boxPaint.setStrokeCap(Cap.ROUND);
     boxPaint.setStrokeJoin(Join.ROUND);
-    boxPaint.setStrokeMiter(100);
+    boxPaint.setStrokeMiter(200);
 
     textSizePx =
         TypedValue.applyDimension(

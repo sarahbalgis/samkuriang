@@ -71,7 +71,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         String[] namaPanjang = customer.getName().split(" ");
         haiNama.setText(namaPanjang[0]);
 
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
