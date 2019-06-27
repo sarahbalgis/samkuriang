@@ -1,43 +1,49 @@
 package bodoamat.samkuriang.models;
 
 public class BankSampah {
-    private String namaBankSampah;
-    private String alamatBankSampah;
-    private String latitude;
-    private String longitude;
-    private String noTelp;
+    private String place_name;
+    private String address;
+    private String lat;
+    private String lng;
+    private String phone_number;
 
-
-    public BankSampah(String namaBankSampah, String alamatBankSampah) {
-        this.namaBankSampah = namaBankSampah;
-        this.alamatBankSampah = alamatBankSampah;
+    public String getPlace_name() {
+        return place_name;
     }
 
-    public String getNamaBankSampah() {
-        return namaBankSampah;
+    public String getAddress() {
+        return address;
     }
 
-    public void setNamaBankSampah(String namaBankSampah) {
-        this.namaBankSampah = namaBankSampah;
+    public String getLat() {
+        return lat;
     }
 
-    public String getAlamatBankSampah() {
-        return alamatBankSampah;
+    public String getLng() {
+        return lng;
     }
 
-    public void setAlamatBankSampah(String alamatBankSampah) {
-        this.alamatBankSampah = alamatBankSampah;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public String getLatitude() {
-        return latitude;
+    public void setPlace_name(String place_name) {
+        this.place_name = place_name;
     }
 
-    public String getLongitude() {
-        return longitude;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getNoTelp() {
-        return noTelp;
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 }

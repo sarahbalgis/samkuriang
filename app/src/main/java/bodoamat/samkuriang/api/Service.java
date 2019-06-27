@@ -1,5 +1,9 @@
 package bodoamat.samkuriang.api;
 
+import bodoamat.samkuriang.models.BankSampah;
+import bodoamat.samkuriang.models.BankSampahs;
+import bodoamat.samkuriang.models.DaftarNasabah;
+import bodoamat.samkuriang.models.JSONResponse;
 import bodoamat.samkuriang.models.Result;
 
 import bodoamat.samkuriang.models.Saving;
@@ -31,12 +35,25 @@ public interface Service {
         @Field("password") String password
     );
 
+    // tabungan
     @GET("customers/tabungan/{id}")
     Call<Saving> getTabungan(
         @Path("id") int id
     );
 
+    // data bank sampah
+    @GET("customers/data-garbage-officer")
+    Call<BankSampahs> getBankSampah();
 
+    // daftar jadi nasabah
+    @POST("customers/join-nasabah/{id}/{garbage_officer_id}")
+    Call<DaftarNasabah> daftarNasabah(
+        @Path("id") int id,
+        @Path("garbage_officer_id") int garbage_officer_id
+
+    );
+
+    // update profile
     @FormUrlEncoded
     @PUT("customers/update-profile/{id}")
     Call<Result> updateProfile(

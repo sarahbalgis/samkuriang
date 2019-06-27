@@ -32,16 +32,19 @@
         />
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPagerBankSampah"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvBankSampah"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentBottom="true"
         android:clipToPadding="true"
         android:foregroundGravity="center"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:orientation="horizontal"
+        app:reverseLayout="true"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager">
 
-    </android.support.v4.view.ViewPager>
+    </android.support.v7.widget.RecyclerView>
 
 
 

@@ -3,6 +3,8 @@ package bodoamat.samkuriang.fragment;
 
 import android.Manifest;
 import android.animation.ArgbEvaluator;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -12,12 +14,20 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -31,13 +41,36 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.activity.LoginActivity;
 import bodoamat.samkuriang.adapter.BankSampahAdapter;
+import bodoamat.samkuriang.api.ConfigUtils;
+import bodoamat.samkuriang.api.Service;
 import bodoamat.samkuriang.models.BankSampah;
+import bodoamat.samkuriang.models.BankSampahs;
+import bodoamat.samkuriang.models.Customer;
+import bodoamat.samkuriang.models.DaftarNasabah;
+import bodoamat.samkuriang.models.JSONResponse;
+import bodoamat.samkuriang.models.Result;
+import bodoamat.samkuriang.models.Saving;
+import bodoamat.samkuriang.storage.SharedPrefManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static bodoamat.samkuriang.api.ConfigUtils.BASE_URL;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -51,10 +84,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     LocationRequest mLocationRequest;
     View mapView;
 
-    // view pager
-    ViewPager viewPagerBankSampah;
-    BankSampahAdapter bankSampahAdapter;
-    List<BankSampah> bankSampahs;
+    private RecyclerView recyclerViewBankSampah;
+    private ArrayList<BankSampah> bankSampahs;
+//    private BankSampahAdapter bankSampahAdapter;
+    private RecyclerView.Adapter bankSampahAdapter;
 
     public MapsFragment() {
 
@@ -66,7 +99,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_maps, container, false);
-
         return rootView;
     }
 
@@ -79,49 +111,53 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mapFragment.getMapAsync(this);
         mapView = mapFragment.getView();
 
-        // view pager
-        bankSampahs = new ArrayList<>();
-        bankSampahs.add(new BankSampah("Bank Sampah Sejahtera", "Jalan Bambon Raya Beji Timur"));
-        bankSampahs.add(new BankSampah("Bank Sampah Kukusan", "Jalan Palakali Raya No. 71"));
-        bankSampahs.add(new BankSampah("Bank Sampah Tanah Baru", "Jalan Tugu Tanah Baru No. 001"));
-        bankSampahs.add(new BankSampah("Bank Sampah Krukut", "Jalan Krukut Raya"));
+        recyclerViewBankSampah = getActivity().findViewById(R.id.rvBankSampah);
+        recyclerViewBankSampah.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewBankSampah.setLayoutManager(layoutManager);
 
-        bankSampahAdapter = new BankSampahAdapter(bankSampahs, this);
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewBankSampah.setLayoutManager(llm);
+        recyclerViewBankSampah.setAdapter( bankSampahAdapter );
 
-        viewPagerBankSampah = view.findViewById(R.id.viewPagerBankSampah);
-        viewPagerBankSampah.setAdapter(bankSampahAdapter);
-        viewPagerBankSampah.setPadding(16,0,16,0);
+        // api
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConfigUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        viewPagerBankSampah.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        Service service = retrofit.create(Service.class);
+
+        Call<BankSampahs> call = service.getBankSampah();
+
+        call.enqueue(new Callback<BankSampahs>() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                if (position < (bankSampahAdapter.getCount() -1) && position < (colors.length -1 )){
-//                    viewPagerBankSampah.setBackgroundColor(
-//                            (Integer) argbEvaluator.evaluate(
-//                                    positionOffset,
-//                                    colors[position],
-//                                    colors[position+1]
-//                            )
-//                    );
-//                }
-//
-//                else {
-//                    viewPagerBankSampah.setBackgroundColor(colors[colors.length-1]);
-//                }
-
+            public void onResponse(Call<BankSampahs> call, Response<BankSampahs> response) {
+                bankSampahAdapter = new BankSampahAdapter(response.body().getBankSampahs(), getActivity());
+                recyclerViewBankSampah.setAdapter(bankSampahAdapter);
             }
 
             @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
+            public void onFailure(Call<BankSampahs> call, Throwable t) {
+                Toast.makeText(getActivity(), "gagal", Toast.LENGTH_LONG).show();
             }
         });
+
+//        public static void userJadiNasabah(int id, int id-g){
+//            Call<DaftarNasabah> callDaftarNasabah = service.daftarNasabah(
+//                    SharedPrefManager.getInstance(getActivity()).getCustomer().getId(),
+//
+//                    );
+//
+//        }
+
+
+
     }
+
+
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
