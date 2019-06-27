@@ -1,9 +1,7 @@
 package bodoamat.samkuriang.api;
 
-import bodoamat.samkuriang.models.BankSampah;
 import bodoamat.samkuriang.models.BankSampahs;
 import bodoamat.samkuriang.models.DaftarNasabah;
-import bodoamat.samkuriang.models.JSONResponse;
 import bodoamat.samkuriang.models.Result;
 
 import bodoamat.samkuriang.models.Saving;

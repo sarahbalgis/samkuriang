@@ -2,9 +2,6 @@ package bodoamat.samkuriang.fragment;
 
 
 import android.Manifest;
-import android.animation.ArgbEvaluator;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -13,21 +10,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -41,36 +31,20 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.activity.LoginActivity;
 import bodoamat.samkuriang.adapter.BankSampahAdapter;
 import bodoamat.samkuriang.api.ConfigUtils;
 import bodoamat.samkuriang.api.Service;
 import bodoamat.samkuriang.models.BankSampah;
 import bodoamat.samkuriang.models.BankSampahs;
-import bodoamat.samkuriang.models.Customer;
-import bodoamat.samkuriang.models.DaftarNasabah;
-import bodoamat.samkuriang.models.JSONResponse;
-import bodoamat.samkuriang.models.Result;
-import bodoamat.samkuriang.models.Saving;
-import bodoamat.samkuriang.storage.SharedPrefManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static bodoamat.samkuriang.api.ConfigUtils.BASE_URL;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
