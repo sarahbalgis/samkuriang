@@ -3,7 +3,6 @@ package bodoamat.samkuriang.fragment;
 
 import android.Manifest;
 import android.animation.ArgbEvaluator;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -16,7 +15,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -37,10 +35,7 @@ import java.util.List;
 import java.util.Objects;
 
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.activity.DetailBankSampahActivity;
-import bodoamat.samkuriang.activity.EditProfileActivity;
 import bodoamat.samkuriang.adapter.BankSampahAdapter;
-import bodoamat.samkuriang.adapter.BeritaAdapterPager;
 import bodoamat.samkuriang.models.BankSampah;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks,
@@ -180,8 +175,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
                 .addApi(LocationServices.API).build();
         mGoogleApiClient.connect();
     }
-
-
 
     @Override
     public void onLocationChanged(Location location) {
