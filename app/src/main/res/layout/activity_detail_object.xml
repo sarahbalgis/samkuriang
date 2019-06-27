@@ -79,8 +79,6 @@ tools:context=".activity.DetailObjectActivity">
             android:textColor="#fff"
             android:fontFamily="@font/raleway_medium"
             android:textSize="18sp"/>
-
-
     </LinearLayout>
 
     <Button

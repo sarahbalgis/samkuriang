@@ -76,6 +76,9 @@ dependencies {
     //tflite
     implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
 
+    // picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }
 
 //apply plugin: 'com.google.gms.google-services'

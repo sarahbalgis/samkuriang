@@ -90,16 +90,15 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private BorderedText borderedText;
 
-//  TextView textLabel = (TextView)findViewById(R.id.textLabel);
   protected TextView textLabel;
-  protected Button takePicture;
+  Button takePicture;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     // find id on layout
-    takePicture.findViewById(R.id.takePicture);
+    takePicture = findViewById(R.id.takePicture);
 
     takePicture.setOnClickListener(this);
   }
@@ -257,6 +256,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private void imageProcessing(){
     Intent intent = new Intent(this, DetailObjectActivity.class);
+    intent.putExtra("label_sampah", textLabel.getText());
     startActivity(intent);
   }
 
