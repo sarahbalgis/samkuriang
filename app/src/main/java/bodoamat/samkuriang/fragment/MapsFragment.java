@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,9 +60,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
     ViewPager viewPagerBankSampah;
     BankSampahAdapter bankSampahAdapter;
     List<BankSampah> bankSampahs;
-    // untuk ganti warna background
-    Integer[] colors = null;
-    ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
     public MapsFragment() {
 
@@ -72,9 +70,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_maps, container, false);
         View rootView = inflater.inflate(R.layout.fragment_maps, container, false);
-
 
         return rootView;
     }
@@ -101,7 +97,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         viewPagerBankSampah.setAdapter(bankSampahAdapter);
         viewPagerBankSampah.setPadding(16,0,16,0);
 
-
         viewPagerBankSampah.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -119,14 +114,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 //                    viewPagerBankSampah.setBackgroundColor(colors[colors.length-1]);
 //                }
 
-//                viewPagerBankSampah.setOnClickListener();
             }
 
             @Override
             public void onPageSelected(int i) {
-
-//                Intent intentBankSampah = new Intent(getActivity(), DetailBankSampahActivity.class);
-//                getActivity().startActivity(intentBankSampah);
 
             }
 
@@ -135,11 +126,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
             }
         });
-
-
-
     }
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -154,11 +141,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
             // position on right bottom
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-            layoutParams.setMargins(0, 0, 30, 30);
+            layoutParams.setMargins(0, 0, 30, 600);
         }
-
-
-
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(getActivity(),

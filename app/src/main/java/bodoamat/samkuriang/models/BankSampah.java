@@ -3,6 +3,10 @@ package bodoamat.samkuriang.models;
 public class BankSampah {
     private String namaBankSampah;
     private String alamatBankSampah;
+    private String latitude;
+    private String longitude;
+    private String noTelp;
+
 
     public BankSampah(String namaBankSampah, String alamatBankSampah) {
         this.namaBankSampah = namaBankSampah;
@@ -23,5 +27,17 @@ public class BankSampah {
 
     public void setAlamatBankSampah(String alamatBankSampah) {
         this.alamatBankSampah = alamatBankSampah;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getNoTelp() {
+        return noTelp;
     }
 }

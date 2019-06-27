@@ -1,8 +1,11 @@
 package bodoamat.samkuriang.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import bodoamat.samkuriang.R;
+import bodoamat.samkuriang.activity.DetailBankSampahActivity;
 import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.models.BankSampah;
 
@@ -37,8 +41,8 @@ public class BankSampahAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        Context context = container.getContext();
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
+        final Context context = container.getContext();
         layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.item_bank_sampah, container, false);
 
@@ -49,6 +53,16 @@ public class BankSampahAdapter extends PagerAdapter {
 
         namaBankSampah.setText(bankSampahs.get(position).getNamaBankSampah());
         alamatBankSampah.setText(bankSampahs.get(position).getAlamatBankSampah());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentBankSampah = new Intent(context, DetailBankSampahActivity.class);
+                intentBankSampah.putExtra("param", bankSampahs.get(position).getNamaBankSampah());
+                context.startActivity(intentBankSampah);
+
+            }
+        });
 
         container.addView(view, 0);
 
