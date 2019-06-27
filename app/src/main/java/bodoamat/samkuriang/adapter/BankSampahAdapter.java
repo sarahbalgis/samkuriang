@@ -59,7 +59,7 @@ public class BankSampahAdapter extends RecyclerView.Adapter<BankSampahAdapter.Vi
 
                             case DialogInterface.BUTTON_NEGATIVE:
                                 //No button clicked
-                                dialog.dismiss();
+                                dialog.cancel();
                                 break;
                         }
                     }
