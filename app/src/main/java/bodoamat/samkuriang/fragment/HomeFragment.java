@@ -109,9 +109,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         // banner
         viewPagerBanner= rootView.findViewById(R.id.viewPagerBanner);
+        dataImage.add(R.drawable.slider2);
+        dataImage.add(R.drawable.slider3);
         dataImage.add(R.drawable.slider1);
-        dataImage.add(R.drawable.b);
-        dataImage.add(R.drawable.c);
 
         indicator1 = rootView.findViewById(R.id.indicator1);
         indicator2 = rootView.findViewById(R.id.indicator2);

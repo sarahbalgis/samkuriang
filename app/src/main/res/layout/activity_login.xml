@@ -60,7 +60,7 @@
             android:fontFamily="@font/raleway_bold"
             android:text="E-mail"
             android:textColor="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/layoutEmail"
@@ -78,9 +78,9 @@
                 android:layout_alignStart="@+id/layoutEmail"
                 android:layout_alignTop="@+id/layoutEmail"
                 android:fontFamily="@font/raleway_medium"
-                android:hint="input your e-mail"
+                android:hint="Masukkan E-mail"
                 android:inputType="textEmailAddress"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -93,7 +93,7 @@
             android:fontFamily="@font/raleway_bold"
             android:text="Password"
             android:textColor="@color/hitam"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
 
         <android.support.design.widget.TextInputLayout
@@ -111,9 +111,9 @@
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="input your password"
+                android:hint="Masukkan Password"
                 android:inputType="textPassword"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:fontFamily="@font/raleway_medium"/>
 
 
@@ -123,28 +123,14 @@
     </RelativeLayout>
 
 
-    <TextView
-        android:id="@+id/textForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bg_tengah_login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Forget Password?"
-        android:textAlignment="textEnd"
-        android:textAllCaps="false"
-        android:fontFamily="@font/raleway_medium"
-        android:textColor="@color/hitam"
-        android:textSize="14sp" />
-
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/textForgetPassword"
+        android:layout_height="45dp"
+        android:layout_below="@id/bg_tengah_login"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/round_button"
         android:fontFamily="@font/raleway_bold"
@@ -167,8 +153,8 @@
             android:id="@+id/textDont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account? "
-            android:textSize="14sp"
+            android:text="Belum memiliki akun? "
+            android:textSize="16sp"
             android:fontFamily="@font/raleway_medium"
             android:textColor="@color/hitam"/>
 
@@ -178,7 +164,7 @@
             android:layout_height="wrap_content"
             android:text="Sign Up"
             android:layout_below="@+id/textDont"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="@color/colorAccent"
             android:fontFamily="@font/raleway_bold"
             android:onClick="onClick"

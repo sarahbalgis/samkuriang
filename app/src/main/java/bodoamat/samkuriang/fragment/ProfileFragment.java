@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.activity.EditProfileActivity;
+import bodoamat.samkuriang.activity.HelpActivity;
 import bodoamat.samkuriang.activity.LoginActivity;
 import bodoamat.samkuriang.activity.PasswordActivity;
 import bodoamat.samkuriang.models.Customer;
@@ -20,7 +21,7 @@ import bodoamat.samkuriang.storage.SharedPrefManager;
 
 public class ProfileFragment extends Fragment {
 
-    Button btnOut, btnEdit, btnPassword;
+    Button btnOut, btnEdit, btnPassword, btnHelp;
     TextView profileNama, profileAddress, textProfileImage;
 
 
@@ -47,6 +48,7 @@ public class ProfileFragment extends Fragment {
         btnEdit = rootView.findViewById(R.id.editProfile);
         btnPassword = rootView.findViewById(R.id.changePassword);
         textProfileImage = rootView.findViewById(R.id.textProfile);
+        btnHelp = rootView.findViewById(R.id.help);
 
         return rootView;
     }
@@ -85,6 +87,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), PasswordActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+
+        btnHelp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HelpActivity.class);
                 getActivity().startActivity(intent);
             }
         });

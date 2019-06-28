@@ -1,109 +1,144 @@
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="80dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="13dp"
     android:layout_marginRight="13dp"
     android:layout_marginTop="13dp">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pemasukan"
-            android:textSize="16sp"
-            android:textColor="@color/hitam"
-            android:fontFamily="@font/raleway_bold"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp"
+        android:clickable="true"
+        android:background="@drawable/circle_putih">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/hijau_muda"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rp"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                />
+                <TextView
+                    android:id="@+id/tanggal_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_light"
+                    android:text="28 Juni 2019"
+                    android:layout_gravity="right"
+                    android:textColor="@color/hitam"
+                    android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/nominal_harga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3000"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
-                android:layout_marginLeft="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Pemasukan"
+                    android:textColor="@color/hitam"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Rp"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/nominal_harga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="3000"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/jumlah_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="1"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="kg"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="-"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/text_jenis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:text="Botol Platik"
+                        android:textColor="@color/hitam"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/jumlah_kg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="kg"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
-                android:layout_marginLeft="5dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
-                android:layout_marginLeft="5dp"/>
+    </android.support.v7.widget.CardView>
 
 
-            <TextView
-                android:id="@+id/text_jenis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Botol Platik"
-                android:textSize="16sp"
-                android:textColor="@color/hitam"
-                android:fontFamily="@font/raleway_medium"
-                android:layout_marginLeft="5dp"/>
-
-
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
-
-
-
-</android.support.v7.widget.CardView>
+</LinearLayout>
 

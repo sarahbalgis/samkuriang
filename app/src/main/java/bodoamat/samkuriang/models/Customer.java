@@ -48,6 +48,8 @@ public class Customer {
         this.password = password;
     }
 
+
+
     public int getId() {
         return id;
     }

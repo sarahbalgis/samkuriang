@@ -1,7 +1,7 @@
 package bodoamat.samkuriang.api;
 
+import bodoamat.samkuriang.models.HistoryList;
 import bodoamat.samkuriang.models.Result;
-
 import bodoamat.samkuriang.models.Saving;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -26,14 +26,18 @@ public interface Service {
     // login
     @FormUrlEncoded
     @POST("customers/login")
-    Call<Result> loginCustomer (
-        @Field("email") String email,
-        @Field("password") String password
+    Call<Result> loginCustomer(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
+    @GET("customers/histories/{id}")
+    Call<HistoryList> getHistory(
     );
 
     @GET("customers/tabungan/{id}")
     Call<Saving> getTabungan(
-        @Path("id") int id
+            @Path("id") int id
     );
 
 
@@ -54,7 +58,6 @@ public interface Service {
             @Field("old_password") String old_password,
             @Field("password") String password
     );
-
 
 
 }

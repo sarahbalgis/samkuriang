@@ -1,13 +1,15 @@
-package bodoamat.samkuriang;
+package bodoamat.samkuriang.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class DetailObjectActivity extends AppCompatActivity {
+import bodoamat.samkuriang.R;
+
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_object);
+        setContentView(R.layout.activity_help);
     }
 }
