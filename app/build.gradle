@@ -31,9 +31,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:design:28.0.0'
 
-    // glide for profile picture
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-
     // round corner
     implementation 'com.jcminarro:RoundKornerLayouts:0.4.0'
 
@@ -61,6 +58,10 @@ dependencies {
     // gmaps
     implementation 'com.karumi:dexter:5.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-basement:16.2.0'
+    implementation 'com.google.android.gms:play-services-base:16.1.0'
+    implementation 'com.google.android.gms:play-services-gcm:16.1.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     // search bar
     implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
@@ -71,6 +72,8 @@ dependencies {
 
     //Times Formater
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+    // volley
+    implementation 'com.android.volley:volley:1.1.0'
 
 
 }

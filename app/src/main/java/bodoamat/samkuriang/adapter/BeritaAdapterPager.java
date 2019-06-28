@@ -56,7 +56,6 @@ public class BeritaAdapterPager extends PagerAdapter {
 
         container.addView(view, 0);
 
-
         return view;
     }
 
