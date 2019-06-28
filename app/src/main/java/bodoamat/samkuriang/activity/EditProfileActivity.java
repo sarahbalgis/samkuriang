@@ -29,7 +29,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     TextView textProfileImage;
     Button btnEditSave;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +115,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if (v == btnEditSave) {
             updateProfile();
-
         }
     }
 }

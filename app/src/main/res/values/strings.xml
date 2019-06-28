@@ -19,5 +19,9 @@
     <string name="slide_4_title">Tabungan Sampah</string>
     <string name="slide_4_desc">Anda dapat memilah jenis dan bentuk sampah dengan mudah dengan bantuan object detection pada aplikasi SAMKURIANG</string>
 
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
 
 </resources>

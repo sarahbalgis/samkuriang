@@ -1,8 +1,6 @@
 package bodoamat.samkuriang.api;
 
-import bodoamat.samkuriang.models.BankSampahs;
-import bodoamat.samkuriang.models.DaftarNasabah;
-import bodoamat.samkuriang.models.HistoryList;
+import bodoamat.samkuriang.models.Garbage;
 import bodoamat.samkuriang.models.Result;
 import bodoamat.samkuriang.models.Saving;
 import bodoamat.samkuriang.models.StatusNasabah;
@@ -59,6 +57,11 @@ public interface Service {
         @Path("id") int id,
         @Path("garbage_officer_id") int garbage_officer_id
 
+    );
+    
+    @GET("garbage/detail/{name}")
+    Call<Garbage> getGarbageDetail(
+            @Path("name") String name
     );
 
     // update profile

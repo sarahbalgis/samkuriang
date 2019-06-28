@@ -76,6 +76,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         saldoTabungan = rootView.findViewById(R.id.saldo_tabungan);
         beratSampah = rootView.findViewById(R.id.berat_sampah);
 
+        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
+
+        String[] namaPanjang = customer.getName().split(" ");
+        haiNama.setText(namaPanjang[0]);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

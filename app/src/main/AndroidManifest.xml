@@ -43,6 +43,8 @@
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait">
+        <activity android:name=".activity.SaveObjectActivity"></activity>
+        <activity android:name=".activity.DetailObjectActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
