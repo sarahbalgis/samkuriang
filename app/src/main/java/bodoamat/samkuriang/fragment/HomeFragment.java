@@ -155,14 +155,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
 
-        Customer customer = SharedPrefManager.getInstance(getActivity()).getCustomer();
-
-        String[] namaPanjang = customer.getName().split(" ");
-        haiNama.setText(namaPanjang[0]);
-
-
-
-
 
         // banner
         viewPagerBanner= rootView.findViewById(R.id.viewPagerBanner);

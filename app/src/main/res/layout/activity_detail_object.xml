@@ -39,8 +39,8 @@ tools:context=".activity.DetailObjectActivity">
 
     <ImageView
         android:id="@+id/image_object"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
         android:scaleType="fitXY"
@@ -52,13 +52,9 @@ tools:context=".activity.DetailObjectActivity">
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/nama_sampah"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="22dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_trash"
-            android:layout_marginLeft="22dp"/>
 
         <TextView
             android:id="@+id/jenis_sampah"
@@ -67,7 +63,7 @@ tools:context=".activity.DetailObjectActivity">
             android:layout_marginLeft="5dp"
             android:text="Sampah Anorganik"
             android:textColor="#000"
-            android:fontFamily="@font/raleway_medium"
+            android:fontFamily="@font/raleway_bold"
             android:textSize="18sp"/>
 
     </LinearLayout>
@@ -81,10 +77,6 @@ tools:context=".activity.DetailObjectActivity">
         android:layout_marginTop="7dp"
         android:layout_marginLeft="22dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_bookmark"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,7 +92,7 @@ tools:context=".activity.DetailObjectActivity">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="3.000"
+            android:text="5.000"
             android:textColor="#000"
             android:fontFamily="@font/raleway_medium"
             android:textSize="18sp"/>
@@ -118,9 +110,9 @@ tools:context=".activity.DetailObjectActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dua"
+        android:layout_below="@+id/image_object"
         android:orientation="vertical"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp">
 
@@ -129,7 +121,8 @@ tools:context=".activity.DetailObjectActivity">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
-            android:textColor="#000"
+            android:textColor="#000000"
+            android:textSize="16sp"
             android:fontFamily="@font/raleway_light" />
 
         <LinearLayout
@@ -146,6 +139,7 @@ tools:context=".activity.DetailObjectActivity">
                 android:src="@drawable/ic_action_emo_wonder"/>
 
             <TextView
+                android:id="@+id/umur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="butuh 1500 tahun untuk menguraikan sampah ini"
@@ -155,14 +149,6 @@ tools:context=".activity.DetailObjectActivity">
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tukarkan sampahmu di:"
-            android:textColor="#000"
-            android:fontFamily="@font/raleway_extrabold"
-            android:layout_marginTop="10dp"
-            android:textSize="18sp"/>
 
 
 

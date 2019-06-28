@@ -61,6 +61,7 @@ public class ProfileFragment extends Fragment {
 
         profileNama.setText(customer.getName());
         profileAddress.setText(customer.getAddress());
+
         String namaPanjang = customer.getName();
         namaPanjang = namaPanjang.substring(0,1);
         textProfileImage.setText(namaPanjang);

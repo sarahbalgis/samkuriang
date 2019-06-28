@@ -1,6 +1,5 @@
 package bodoamat.samkuriang.activity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -22,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetailObjectActivity extends AppCompatActivity {
 
-    TextView nama_sampah,jenis_sampah;
+    TextView nama_sampah,jenis_sampah, umur, deskripsi_sampah;
     ImageView image_object;
 
     @Override
@@ -34,6 +33,8 @@ public class DetailObjectActivity extends AppCompatActivity {
         nama_sampah = findViewById(R.id.nama_sampah);
         jenis_sampah = findViewById(R.id.jenis_sampah);
         image_object = findViewById(R.id.image_object);
+        umur = findViewById(R.id.umur);
+        deskripsi_sampah = findViewById(R.id.deskripsi_sampah);
 
         // setter
         nama_sampah.setText(GFG.convert(getIntent().getStringExtra("label_sampah")));
@@ -54,6 +55,8 @@ public class DetailObjectActivity extends AppCompatActivity {
             public void onResponse(Call<Garbage> callGarbageDetail, Response<Garbage> response) {
                 jenis_sampah.setText(response.body().getType());
                 Picasso.get().load(response.body().getBackground_images()).into(image_object);
+                umur.setText("butuh " + response.body().getAge() + " untuk menguraikan sampah tersebut");
+                deskripsi_sampah.setText(response.body().getDescription());
             }
 
             @Override

@@ -30,6 +30,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,6 +46,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static bodoamat.samkuriang.api.ConfigUtils.BASE_URL;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -113,6 +116,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
             public void onResponse(Call<BankSampahs> call, Response<BankSampahs> response) {
                 bankSampahAdapter = new BankSampahAdapter(response.body().getBankSampahs(), getActivity());
                 recyclerViewBankSampah.setAdapter(bankSampahAdapter);
+
+
             }
 
             @Override
@@ -138,7 +143,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+
+
+
+
+
         mMap = googleMap;
+
         if (mapView != null &&
                 mapView.findViewById(Integer.parseInt("1")) != null) {
             // Get the button view
@@ -173,6 +185,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mGoogleApiClient.connect();
     }
 
+
     @Override
     public void onLocationChanged(Location location) {
         if (mCurrLocationMarker != null) {
@@ -181,9 +194,33 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(18).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(13).build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        // building retrofit object
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //Defining retrofit api service
+        Service service = retrofit.create(Service.class);
+
+        Call<BankSampahs> callMarker = service.getBankSampah();
+
+        LatLng sejahtera2 = new LatLng(-6.3972348, 106.8393887);
+        mMap.addMarker(new MarkerOptions().position(sejahtera2)
+                .title("Bank Sampah Sejahtera Merdeka"));
+
+        LatLng sejahtera = new LatLng(-6.3667698, 106.7991354);
+        mMap.addMarker(new MarkerOptions().position(sejahtera)
+                .title("Bank Sampah Sejahtera Fatahillah"));
+
+        LatLng kartini = new LatLng(-6.4043814, 106.8168024);
+        mMap.addMarker(new MarkerOptions().position(kartini)
+                .title("Bank Sampah Kartini"));
+
         //Place current location marker
 //        MarkerOptions markerOptions = new MarkerOptions();
 ////        markerOptions.position(latLng);

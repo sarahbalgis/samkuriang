@@ -1,6 +1,9 @@
 package bodoamat.samkuriang.api;
 
+import bodoamat.samkuriang.models.BankSampahs;
+import bodoamat.samkuriang.models.DaftarNasabah;
 import bodoamat.samkuriang.models.Garbage;
+import bodoamat.samkuriang.models.HistoryList;
 import bodoamat.samkuriang.models.Result;
 import bodoamat.samkuriang.models.Saving;
 import bodoamat.samkuriang.models.StatusNasabah;
@@ -64,6 +67,8 @@ public interface Service {
             @Path("name") String name
     );
 
+
+
     // update profile
     @FormUrlEncoded
     @PUT("customers/update-profile/{id}")
@@ -82,6 +87,5 @@ public interface Service {
             @Field("old_password") String old_password,
             @Field("password") String password
     );
-
 
 }

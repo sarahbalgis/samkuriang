@@ -27,6 +27,9 @@
         <activity android:name=".activity.DaftarNasabahActivity"></activity>
         <activity android:name=".activity.DetailBankSampahActivity" />
         <activity android:name=".activity.HelpActivity" />
+        <activity android:name=".activity.SaveObjectActivity"></activity>
+        <activity android:name=".activity.DetailObjectActivity" ></activity>
+        <activity android:name=".activity.DetectorActivity" ></activity>
         <activity
             android:name=".activity.EditProfileActivity"
             android:screenOrientation="portrait" />
@@ -43,8 +46,6 @@
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait">
-        <activity android:name=".activity.SaveObjectActivity"></activity>
-        <activity android:name=".activity.DetailObjectActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
