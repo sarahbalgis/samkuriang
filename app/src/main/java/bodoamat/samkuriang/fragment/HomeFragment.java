@@ -1,5 +1,6 @@
 package bodoamat.samkuriang.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import bodoamat.samkuriang.activity.DaftarNasabahActivity;
 import bodoamat.samkuriang.R;
 import bodoamat.samkuriang.adapter.BannerAdapterPager;
 import bodoamat.samkuriang.adapter.BeritaAdapterPager;
@@ -25,6 +28,7 @@ import bodoamat.samkuriang.api.Service;
 import bodoamat.samkuriang.models.Customer;
 import bodoamat.samkuriang.models.ModelBerita;
 import bodoamat.samkuriang.models.Saving;
+import bodoamat.samkuriang.models.StatusNasabah;
 import bodoamat.samkuriang.storage.SharedPrefManager;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,6 +54,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     ViewPager viewPagerBerita;
     BeritaAdapterPager beritaAdapterPager;
     List<ModelBerita> modelBeritas;
+
+    // status nasabah
+    ImageView icon_warning, icon_checklist;
+    TextView status_nasabah_belum, status_nasabah_sudah, nama_bank_sampah;
+    LinearLayout btn_daftar_nasabah;
 
     public HomeFragment(){
 
@@ -94,6 +103,49 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
 
 
+        });
+
+        //status nasabah
+        icon_warning = rootView.findViewById(R.id.icon_warning);
+        icon_checklist = rootView.findViewById(R.id.icon_checklist);
+        status_nasabah_belum = rootView.findViewById(R.id.status_nasabah_belum);
+        status_nasabah_sudah = rootView.findViewById(R.id.status_nasabah_sudah);
+        nama_bank_sampah = rootView.findViewById(R.id.tv_nama_bank_sampah);
+        btn_daftar_nasabah = rootView.findViewById(R.id.btn_daftar_nasabah);
+
+        Call<StatusNasabah> callStatus = service.getStatusCustomer(
+                SharedPrefManager.getInstance(getActivity()).getCustomer().getId()
+        );
+
+        callStatus.enqueue(new Callback<StatusNasabah>() {
+            @Override
+            public void onResponse(Call<StatusNasabah> call, Response<StatusNasabah> response) {
+                // jika status = 1 atau true, user sudah terdaftar di bank sampah
+                if (response.body().getStatus().equals("1")){
+                    btn_daftar_nasabah.setVisibility(View.INVISIBLE);
+                    icon_warning.setVisibility(View.INVISIBLE);
+                    status_nasabah_belum.setVisibility(View.INVISIBLE);
+                    nama_bank_sampah.setText(response.body().getPlace_name());
+                    nama_bank_sampah.setVisibility(View.VISIBLE);
+                    icon_checklist.setVisibility(View.VISIBLE);
+                    status_nasabah_sudah.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StatusNasabah> call, Throwable t) {
+                Toast.makeText(getActivity(), "gagal get status", Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+        btn_daftar_nasabah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // daftar jadi nasabah
+                Intent intentDaftarNasabah = new Intent(getActivity(), DaftarNasabahActivity.class);
+                getActivity().startActivity(intentDaftarNasabah);
+            }
         });
 
 

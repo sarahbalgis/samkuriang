@@ -5,6 +5,7 @@ import bodoamat.samkuriang.models.DaftarNasabah;
 import bodoamat.samkuriang.models.HistoryList;
 import bodoamat.samkuriang.models.Result;
 import bodoamat.samkuriang.models.Saving;
+import bodoamat.samkuriang.models.StatusNasabah;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -40,6 +41,11 @@ public interface Service {
     // tabungan
     @GET("customers/tabungan/{id}")
     Call<Saving> getTabungan(
+            @Path("id") int id
+    );
+
+    @GET("customers/status/{id}")
+    Call<StatusNasabah> getStatusCustomer (
             @Path("id") int id
     );
 

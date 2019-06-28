@@ -24,8 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DetailBankSampahActivity"></activity>
-        <activity android:name=".activity.HelpActivity"></activity>
+        <activity android:name=".activity.DaftarNasabahActivity"></activity>
+        <activity android:name=".activity.DetailBankSampahActivity" />
+        <activity android:name=".activity.HelpActivity" />
         <activity
             android:name=".activity.EditProfileActivity"
             android:screenOrientation="portrait" />
