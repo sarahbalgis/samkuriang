@@ -3,10 +3,6 @@ package bodoamat.samkuriang.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import bodoamat.samkuriang.R;
-import bodoamat.samkuriang.activity.DetailBankSampahActivity;
-import bodoamat.samkuriang.fragment.MapsFragment;
 import bodoamat.samkuriang.models.BankSampah;
 
 public class BankSampahAdapter extends RecyclerView.Adapter<BankSampahAdapter.ViewHolder> {
@@ -89,9 +82,9 @@ public class BankSampahAdapter extends RecyclerView.Adapter<BankSampahAdapter.Vi
         public ViewHolder(View view) {
             super(view);
 
-            name = (TextView)view.findViewById(R.id.tvNamaBankSampah);
-            address = (TextView)view.findViewById(R.id.tvAlamatBankSampah);
-            phone_number = (TextView)view.findViewById(R.id.tvTeleponBankSampah);
+            name = view.findViewById(R.id.tvNamaBankSampah);
+            address = view.findViewById(R.id.tvAlamatBankSampah);
+            phone_number = view.findViewById(R.id.tvTeleponBankSampah);
             btnDaftarNasabah = view.findViewById(R.id.btn_daftar_nasabah);
 
         }
