@@ -36,9 +36,6 @@ public class DetailObjectActivity extends AppCompatActivity {
         umur = findViewById(R.id.umur);
         deskripsi_sampah = findViewById(R.id.deskripsi_sampah);
 
-        // setter
-        nama_sampah.setText(GFG.convert(getIntent().getStringExtra("label_sampah")));
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConfigUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -53,6 +50,7 @@ public class DetailObjectActivity extends AppCompatActivity {
         callGarbageDetail.enqueue(new Callback<Garbage>() {
             @Override
             public void onResponse(Call<Garbage> callGarbageDetail, Response<Garbage> response) {
+                nama_sampah.setText(GFG.convert(getIntent().getStringExtra("label_sampah")));
                 jenis_sampah.setText(response.body().getType());
                 Picasso.get().load(response.body().getBackground_images()).into(image_object);
                 umur.setText("butuh " + response.body().getAge() + " untuk menguraikan sampah tersebut");

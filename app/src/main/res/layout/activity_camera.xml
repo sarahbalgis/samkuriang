@@ -67,7 +67,7 @@
             android:layout_above="@+id/takePicture"
             android:textColor="@color/gmm_white"
             android:textAlignment="center"
-            android:text="Test"
+            android:text="Scan Sampahmu"
             />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

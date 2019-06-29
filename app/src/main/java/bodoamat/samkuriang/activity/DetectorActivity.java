@@ -99,6 +99,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     // find id on layout
     takePicture = findViewById(R.id.takePicture);
+    textLabel = findViewById(R.id.textLabel);
 
     takePicture.setOnClickListener(this);
   }
@@ -224,8 +225,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                 if (!result.getTitle().equals("???")) {
                   canvas.drawRect(location, paint);
-                  if(result.getTitle().equals(null)){
 
+                  if(result.getTitle().equals(null)){
+                    showLabelObjectDetection("Scan Sampahmu");
                   } else {
                     showLabelObjectDetection(result.getTitle());
                   }
@@ -256,8 +258,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private void imageProcessing(){
     Intent intent = new Intent(this, DetailObjectActivity.class);
-    intent.putExtra("label_sampah", textLabel.getText());
-    startActivity(intent);
+    if(textLabel.getText().equals("Scan Sampahmu")){
+      Toast.makeText(this, "Sampah tidak ditemukan", Toast.LENGTH_LONG).show();
+    } else {
+      intent.putExtra("label_sampah", textLabel.getText());
+      startActivity(intent);
+    }
   }
 
   @Override
@@ -268,8 +274,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   }
 
   protected void showLabelObjectDetection(String labelInfo) {
-    textLabel = findViewById(R.id.textLabel);
-
     textLabel.setText(labelInfo);
   }
 
