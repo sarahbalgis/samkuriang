@@ -205,8 +205,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         modelBeritas = new ArrayList<>();
         modelBeritas.add(new ModelBerita(R.drawable.berita1,"Indonesia di Peringkat Dua Dunia sebagai Negara Pembuang Makanan Terbanyak", "Ingatkah Anda ketika dimarahi oleh Ibu karena tidak menghabiskan makanan? Atau mungkin hal itu terjadi baru-baru ini saja?"));
         modelBeritas.add(new ModelBerita(R.drawable.berita2,"Pelopor Incinerator Wujudkan Aksi untuk Indonesia Bersih", "Wilayah metropolitan DKI Jakarta saja pada periode 2017 – 2018 ditemukan ada sekitar 11,679 ton/ hari sampah ditimbun di tempat pembuangan akhir (TPA)"));
-        modelBeritas.add(new ModelBerita(R.drawable.c,"Masyarakat Diajak Berpikir Ekonomis tentang Sampah", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dfaef dsgfssf sdaaafg gdytdhinm  dfgdfgggggfg agsauydgadab sgudygusya sgsa arcu sapien, porta nec orci ac, bibendum temsque l congue por et dignissim arcu, sed tempor dolor."));
-
+        modelBeritas.add(new ModelBerita(R.drawable.berita3, "Daripada Dibuang Percuma, Ayo Sulap Barang Bekas Jadi Furnitur Cantik", "Mempercantik rumah tidak harus membeli barang baru. Barang-barang yang sudah tak terpakai pun dapat Anda gunakan kembali."));
         beritaAdapterPager = new BeritaAdapterPager(modelBeritas, this);
 
         viewPagerBerita = rootView.findViewById(R.id.viewPagerBerita);
@@ -221,7 +220,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onPageSelected(int i) {
-
             }
 
             @Override
