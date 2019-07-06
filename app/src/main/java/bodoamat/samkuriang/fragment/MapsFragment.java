@@ -91,15 +91,15 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         mapFragment.getMapAsync(this);
         mapView = mapFragment.getView();
 
-        recyclerViewBankSampah = getActivity().findViewById(R.id.rvBankSampah);
-        recyclerViewBankSampah.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewBankSampah.setLayoutManager(layoutManager);
+//        recyclerViewBankSampah = getActivity().findViewById(R.id.rvBankSampah);
+//        recyclerViewBankSampah.setHasFixedSize(true);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+//        recyclerViewBankSampah.setLayoutManager(layoutManager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewBankSampah.setLayoutManager(llm);
-        recyclerViewBankSampah.setAdapter( bankSampahAdapter );
+//        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+//        llm.setOrientation(LinearLayoutManager.VERTICAL);
+//        recyclerViewBankSampah.setLayoutManager(llm);
+//        recyclerViewBankSampah.setAdapter( bankSampahAdapter );
 
         // api
         Retrofit retrofit = new Retrofit.Builder()
@@ -114,8 +114,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
         call.enqueue(new Callback<BankSampahs>() {
             @Override
             public void onResponse(Call<BankSampahs> call, Response<BankSampahs> response) {
-                bankSampahAdapter = new BankSampahAdapter(response.body().getBankSampahs(), getActivity());
-                recyclerViewBankSampah.setAdapter(bankSampahAdapter);
+//                bankSampahAdapter = new BankSampahAdapter(response.body().getBankSampahs(), getActivity());
+//                recyclerViewBankSampah.setAdapter(bankSampahAdapter);
 
 
             }
@@ -156,12 +156,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
             // Get the button view
             View locationButton = ((View) mapView.findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
             // and next place it, on bottom right (as Google Maps app)
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
-                    locationButton.getLayoutParams();
+//            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)
+//                    locationButton.getLayoutParams();
             // position on right bottom
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-            layoutParams.setMargins(0, 0, 30, 600);
+//            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+//            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
+//            layoutParams.setMargins(0, 0, 0, 0);
         }
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -194,7 +194,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(13).build();
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latLng.latitude, latLng.longitude)).zoom(12).build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
@@ -215,7 +215,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, Locati
 
         LatLng sejahtera = new LatLng(-6.3667698, 106.7991354);
         mMap.addMarker(new MarkerOptions().position(sejahtera)
-                .title("Bank Sampah Sejahtera Fatahillah"));
+                .title("Bank Sampah Sejahtera Fatahillah") );
 
         LatLng kartini = new LatLng(-6.4043814, 106.8168024);
         mMap.addMarker(new MarkerOptions().position(kartini)

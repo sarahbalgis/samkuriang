@@ -134,6 +134,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     nama_bank_sampah.setVisibility(View.VISIBLE);
                     icon_checklist.setVisibility(View.VISIBLE);
                     status_nasabah_sudah.setVisibility(View.VISIBLE);
+                } else if(response.body().getStatus().equals("0")){
+                    btn_daftar_nasabah.setVisibility(View.VISIBLE);
+                    icon_warning.setVisibility(View.VISIBLE);
+                    status_nasabah_belum.setVisibility(View.VISIBLE);
+                    nama_bank_sampah.setText(response.body().getPlace_name());
+                    nama_bank_sampah.setVisibility(View.INVISIBLE);
+                    icon_checklist.setVisibility(View.INVISIBLE);
+                    status_nasabah_sudah.setVisibility(View.INVISIBLE);
                 }
             }
 
